@@ -167,7 +167,7 @@ function PrimarySearchAppBar() {
                         component="div"
                         sx={{ display: { xs: 'none', sm: 'block' } }}
                     >
-                        Yosemite 2020
+                        Yosemite 2022
                     </Typography>
 
                     <Box sx={{ flexGrow: 1 }} />

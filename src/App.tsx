@@ -7,9 +7,19 @@ import { Container} from "react-bootstrap";
 import PrimarySearchAppBar from "./components/navigation";
 import './App.css';
 import DailtInfo from "./components/mainPage";
+import {makeStyles} from "@material-ui/core/styles";
+import {Theme} from "@mui/material";
 
 function App() {
 
+    const useStyles = makeStyles((theme:Theme) => ({
+        div:{
+
+        }
+
+
+    }));
+    const classes = useStyles();
     //@ts-ignore
     return (
       <>
@@ -17,7 +27,7 @@ function App() {
               <PrimarySearchAppBar />
 
 
-              <div style={{fontSize: 50}}> <DailtInfo /></div>
+              <div className={classes.div}> <DailtInfo /></div>
           </Router>
       </>
   );
