@@ -108,7 +108,7 @@ const TemperatureComponent = () => {
                 <CardContent>
 
                     <Typography gutterBottom variant="h5" component="div">Porcupine Flat</Typography>
-                    <Paper variant="outlined" elevation={24}>{mgtemp}°F</Paper>
+                    <Paper variant="outlined" elevation={24}>{yvtemp}°F</Paper>
 
                 </CardContent>
                 <CardActions>

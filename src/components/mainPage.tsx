@@ -6,6 +6,7 @@ import TemperatureComponent from "./TemperatureComponent";
 import SuppliesComponent from "./supplyComponents/SuppliesPage";
 
 import InformationComponent from "./infomationComponents/InformationComponent";
+import DayOneComponent from "./DaybyDayComponents/DayOneComponent";
 
 
 
@@ -52,11 +53,7 @@ const DailtInfo = () => {
     return(
         <>
             <Container className={classes.Container}>
-
-
                 <TemperatureComponent/>
-
-
             </Container>
 
 
@@ -73,14 +70,13 @@ const DailtInfo = () => {
                     </div>
 
                 </div>
-
             </Container>
+
 
             <Container className={classes.Container}>
-
-
-
+                <DayOneComponent/>
             </Container>
+
         </>
 
 
