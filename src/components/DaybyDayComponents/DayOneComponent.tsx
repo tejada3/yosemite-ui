@@ -40,6 +40,78 @@ const DayOneComponent = () => {
                     </Accordion>
 
                 </div>
+            <div className={classes.dayOneDiv}>
+                <Accordion>
+                    <AccordionSummary
+                        expandIcon={<ExpandMoreIcon />}
+                        aria-controls="panel1a-content"
+                        id="panel1a-header"
+                    >
+                        <Typography>Day 2</Typography>
+                    </AccordionSummary>
+                    <AccordionDetails className={classes.accBorder}>
+                        <Typography>Get the Rental</Typography>
+                        <Typography>Do the deed</Typography>
+                        <Typography>Grab the permits from the Information station</Typography>
+
+                    </AccordionDetails>
+                </Accordion>
+
+            </div>
+            <div className={classes.dayOneDiv}>
+                <Accordion>
+                    <AccordionSummary
+                        expandIcon={<ExpandMoreIcon />}
+                        aria-controls="panel1a-content"
+                        id="panel1a-header"
+                    >
+                        <Typography>Day 3</Typography>
+                    </AccordionSummary>
+                    <AccordionDetails className={classes.accBorder}>
+                        <Typography>Get the Rental</Typography>
+                        <Typography>Do the deed</Typography>
+                        <Typography>Grab the permits from the Information station</Typography>
+
+                    </AccordionDetails>
+                </Accordion>
+
+            </div>
+            <div className={classes.dayOneDiv}>
+                <Accordion>
+                    <AccordionSummary
+                        expandIcon={<ExpandMoreIcon />}
+                        aria-controls="panel1a-content"
+                        id="panel1a-header"
+                    >
+                        <Typography>Day 4</Typography>
+                    </AccordionSummary>
+                    <AccordionDetails className={classes.accBorder}>
+                        <Typography>Get the Rental</Typography>
+                        <Typography>Do the deed</Typography>
+                        <Typography>Grab the permits from the Information station</Typography>
+
+                    </AccordionDetails>
+                </Accordion>
+
+            </div>
+            <div className={classes.dayOneDiv}>
+                <Accordion>
+                    <AccordionSummary
+                        expandIcon={<ExpandMoreIcon />}
+                        aria-controls="panel1a-content"
+                        id="panel1a-header"
+                    >
+                        <Typography>Day 5</Typography>
+                    </AccordionSummary>
+                    <AccordionDetails className={classes.accBorder}>
+                        <Typography>Get the Rental</Typography>
+                        <Typography>Do the deed</Typography>
+                        <Typography>Grab the permits from the Information station</Typography>
+
+                    </AccordionDetails>
+                </Accordion>
+
+            </div>
         </>
     )
 }

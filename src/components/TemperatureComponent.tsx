@@ -57,7 +57,8 @@ const TemperatureComponent = () => {
         div:{
             textAlign: "center",
             display: "flex",
-            justifyContent: "center"
+            justifyContent: "center",
+            marginRight: 25
         }
     }));
 

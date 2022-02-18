@@ -10,6 +10,7 @@ import DayOneComponent from "./DaybyDayComponents/DayOneComponent";
 
 
 
+
 const DailtInfo = () => {
 
     const useStyles = makeStyles((theme:Theme) => ({
@@ -27,13 +28,15 @@ const DailtInfo = () => {
             marginTop:25,
             display: "flex",
             backgroundColor: 'grey',
-            borderColor:'black'
+            borderColor:'black',
+
 
         },
 
         row:{
             display: "flex",
-            borderColor: "black"
+            borderColor: "black",
+            width:"fit-content"
         },
         colSupples:{
             borderColor: "black",
@@ -44,6 +47,9 @@ const DailtInfo = () => {
             textAlign: "left",
             borderLeft: "outset",
 
+        },
+        bo:{
+          width:"fit-content"
         }
 
 
@@ -52,9 +58,10 @@ const DailtInfo = () => {
     const classes = useStyles();
     return(
         <>
-            <Container className={classes.Container}>
+
+            <div className={classes.Container}>
                 <TemperatureComponent/>
-            </Container>
+            </div>
 
 
             <Container  className={classes.SuppliesContainer}>
@@ -73,9 +80,10 @@ const DailtInfo = () => {
             </Container>
 
 
-            <Container className={classes.Container}>
+            <div className={classes.Container}>
                 <DayOneComponent/>
-            </Container>
+            </div>
+
 
         </>
 
