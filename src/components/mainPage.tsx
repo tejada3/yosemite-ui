@@ -4,10 +4,9 @@ import React from 'react';
 import {makeStyles} from "@material-ui/core/styles";
 import TemperatureComponent from "./TemperatureComponent";
 import SuppliesComponent from "./supplyComponents/SuppliesPage";
-
+import PhotoComponent from "./phototest";
 import InformationComponent from "./infomationComponents/InformationComponent";
 import DayOneComponent from "./DaybyDayComponents/DayOneComponent";
-
 
 
 const DailtInfo = () => {
@@ -67,6 +66,8 @@ const DailtInfo = () => {
 
                     <div className={classes.colwhen}>
                        <InformationComponent/>
+
+                       
                     </div>
 
                 </div>
@@ -75,6 +76,7 @@ const DailtInfo = () => {
 
             <Container className={classes.Container}>
                 <DayOneComponent/>
+                <PhotoComponent/>
             </Container>
 
         </>
