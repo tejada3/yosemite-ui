@@ -32,6 +32,7 @@ const DayOneComponent = () => {
                             <Typography>Day 1</Typography>
                         </AccordionSummary>
                         <AccordionDetails className={classes.accBorder}>
+
                             <Typography>Get the Rental</Typography>
                             <Typography>Do the deed</Typography>
                             <Typography>Grab the permits from the Information station</Typography>
@@ -49,6 +50,7 @@ const DayOneComponent = () => {
                     >
                         <Typography>Day 2</Typography>
                     </AccordionSummary>
+
                     <AccordionDetails className={classes.accBorder}>
                         <Typography>Get the Rental</Typography>
                         <Typography>Do the deed</Typography>
@@ -68,6 +70,7 @@ const DayOneComponent = () => {
                         <Typography>Day 3</Typography>
                     </AccordionSummary>
                     <AccordionDetails className={classes.accBorder}>
+
                         <Typography>Get the Rental</Typography>
                         <Typography>Do the deed</Typography>
                         <Typography>Grab the permits from the Information station</Typography>
@@ -86,6 +89,7 @@ const DayOneComponent = () => {
                         <Typography>Day 4</Typography>
                     </AccordionSummary>
                     <AccordionDetails className={classes.accBorder}>
+
                         <Typography>Get the Rental</Typography>
                         <Typography>Do the deed</Typography>
                         <Typography>Grab the permits from the Information station</Typography>
@@ -104,6 +108,7 @@ const DayOneComponent = () => {
                         <Typography>Day 5</Typography>
                     </AccordionSummary>
                     <AccordionDetails className={classes.accBorder}>
+
                         <Typography>Get the Rental</Typography>
                         <Typography>Do the deed</Typography>
                         <Typography>Grab the permits from the Information station</Typography>

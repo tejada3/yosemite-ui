@@ -2,9 +2,11 @@ import React, {useEffect, useState} from "react";
 import axios from "axios";
 import {makeStyles} from "@material-ui/core/styles";
 import {Button, Card, CardActions, CardContent, Paper, Theme, Typography} from "@mui/material";
+import ActivitiesManagerComponent from "./ActivitiesManagerComponent";
 
 
 const TemperatureComponent = () => {
+
     const [yvtemp,setYvTemp]=useState()
     const [tmtemp,setTmTemp]=useState()
     const [mgtemp,setMgTemp]=useState()
@@ -77,7 +79,8 @@ const TemperatureComponent = () => {
                 </CardContent>
                 <CardActions>
 
-                    <Button size="small">7 day average</Button>
+                    {/*<Button size="small">7 day average</Button>*/}
+                    <ActivitiesManagerComponent/>
 
                 </CardActions>
 
@@ -94,7 +97,8 @@ const TemperatureComponent = () => {
                 </CardContent>
                 <CardActions>
 
-                    <Button size="small">7 day average</Button>
+                    {/*<Button size="small">7 day average</Button>*/}
+                    <ActivitiesManagerComponent/>
 
                 </CardActions>
             </Card>
@@ -114,7 +118,8 @@ const TemperatureComponent = () => {
                 </CardContent>
                 <CardActions>
 
-                    <Button size="small">7 day average</Button>
+                    {/*<Button size="small">7 day average</Button>*/}
+                    <ActivitiesManagerComponent/>
 
                 </CardActions>
             </Card>
@@ -123,13 +128,14 @@ const TemperatureComponent = () => {
 
                 <CardContent>
 
-                    <Typography gutterBottom variant="h5" component="div">Yosemite Valley</Typography>
+                    <Typography gutterBottom variant="h5" component="div">Mariposa Grove</Typography>
                     <Paper variant="outlined" elevation={24}>{mgtemp}°F</Paper>
 
                 </CardContent>
                 <CardActions>
 
-                    <Button size="small">7 day average</Button>
+                    {/*<Button size="small">7 day average</Button>*/}
+                    <ActivitiesManagerComponent/>
 
                 </CardActions>
 
