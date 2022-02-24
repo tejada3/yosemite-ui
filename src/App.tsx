@@ -6,12 +6,13 @@ import './App.css';
 import DailtInfo from "./components/mainPage";
 import {makeStyles} from "@material-ui/core/styles";
 import {Theme} from "@mui/material";
+import yosemite from "./assets/LA6IXZ.jpg"
 
 function App() {
 
     const useStyles = makeStyles((theme:Theme) => ({
         div:{
-            backgroundColor: "honeydew"
+            backgroundImage: `url(${yosemite})`,
         },
         route:{
             // width: "fit-content"

@@ -9,10 +9,23 @@ const SuppliesComponent = () => {
             textAlign: "left",
             width: "max-content",
             fontSize:22
-        }
-
+        },
 
     }));
+
+            {/* <table>
+            <tr><h1>Supplies needed: </h1></tr>
+            <div className={classes.colSupplies}>
+            <tr><h6>Backpacking Gear</h6></tr>
+            <tr><h6>Sleeping bags</h6></tr>
+            <tr><h6>Light weight hammock or tent</h6></tr>
+            <tr><h6>Backpacking Gear</h6></tr>
+            <tr><h6>Backpacking Gear</h6></tr>
+            <tr><h6>Backpacking Gear</h6></tr>
+            <tr><h6>Backpacking Gear</h6></tr>
+            <tr><h6>Backpacking Gear</h6></tr>
+            </div>
+        </table> */}
 
     const classes = useStyles();
     return(

@@ -15,7 +15,6 @@ const DailtInfo = () => {
 
     const useStyles = makeStyles((theme:Theme) => ({
 
-
         Container:{
             marginTop: 20,
             borderStyle: "ridge",
@@ -59,10 +58,7 @@ const DailtInfo = () => {
     return(
         <>
 
-            <div className={classes.Container}>
                 <TemperatureComponent/>
-            </div>
-
 
             <Container  className={classes.SuppliesContainer}>
 
@@ -80,7 +76,7 @@ const DailtInfo = () => {
             </Container>
 
 
-            <div className={classes.Container}>
+            <div>
                 <DayOneComponent/>
             </div>
 
