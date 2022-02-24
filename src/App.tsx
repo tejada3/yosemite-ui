@@ -5,37 +5,41 @@ import PrimarySearchAppBar from "./components/navigation";
 import './App.css';
 import DailtInfo from "./components/mainPage";
 import {makeStyles} from "@material-ui/core/styles";
-import {Theme} from "@mui/material";
+import {Container, Theme} from "@mui/material";
+import pic from "./static/img.png"
+import YoVal from "./static/yoVal.png"
+import {FormatAlignJustify} from "@mui/icons-material";
 
 function App() {
 
     const useStyles = makeStyles((theme:Theme) => ({
         div:{
-            backgroundColor: "honeydew"
+            backgroundColor: "honeydew",
+            backgroundImage: `url(${YoVal})`,
+            backgroundRepeat: 'round',
+
         },
         route:{
-            // width: "fit-content"
+            // width: 'max-content'
         }
 
 
     }));
     const classes = useStyles();
-    //@ts-ignore
+
+
     return (
       <>
+
           <Router >
-              <div className={classes.route}>
-              <PrimarySearchAppBar />
-
-
               <div className={classes.div}>
 
+                  <PrimarySearchAppBar />
                   <DailtInfo />
 
               </div>
-
-              </div>
           </Router>
+
       </>
   );
 }

@@ -7,6 +7,7 @@ import SuppliesComponent from "./supplyComponents/SuppliesPage";
 
 import InformationComponent from "./infomationComponents/InformationComponent";
 import DayOneComponent from "./DaybyDayComponents/DayOneComponent";
+import ActivitiesManagerComponent from "./DaybyDayComponents/ActivitiesManagerComponent";
 
 
 
@@ -18,9 +19,13 @@ const DailtInfo = () => {
 
         Container:{
             marginTop: 20,
-            borderStyle: "ridge",
-            borderColor:"#4e3e61",
-            backgroundColor: '#1976d2'
+        },
+
+        ContainerDays:{
+            marginTop: 20,
+            textAlign: 'center',
+            width: 100
+
         },
 
         SuppliesContainer: {
@@ -29,8 +34,6 @@ const DailtInfo = () => {
             display: "flex",
             backgroundColor: 'grey',
             borderColor:'black',
-
-
         },
 
         row:{
@@ -38,16 +41,19 @@ const DailtInfo = () => {
             borderColor: "black",
             width:"fit-content"
         },
+
         colSupples:{
             borderColor: "black",
             marginRight: 25
         },
+
         colwhen:{
 
             textAlign: "left",
             borderLeft: "outset",
 
         },
+
         bo:{
           width:"fit-content"
         }
@@ -61,6 +67,7 @@ const DailtInfo = () => {
 
             <div className={classes.Container}>
                 <TemperatureComponent/>
+
             </div>
 
 
@@ -80,9 +87,10 @@ const DailtInfo = () => {
             </Container>
 
 
-            <div className={classes.Container}>
+            <Container className={classes.ContainerDays}>
+                <ActivitiesManagerComponent/>
                 <DayOneComponent/>
-            </div>
+            </Container>
 
 
         </>

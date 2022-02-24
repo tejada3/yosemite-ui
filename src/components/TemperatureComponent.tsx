@@ -1,8 +1,9 @@
 import React, {useEffect, useState} from "react";
 import axios from "axios";
 import {makeStyles} from "@material-ui/core/styles";
-import {Button, Card, CardActions, CardContent, Paper, Theme, Typography} from "@mui/material";
-import ActivitiesManagerComponent from "./ActivitiesManagerComponent";
+import {Button, Card, CardActions, CardContent, CardMedia, Paper, Theme, Typography} from "@mui/material";
+import pic from "./static/img.png"
+
 
 
 const TemperatureComponent = () => {
@@ -47,6 +48,9 @@ const TemperatureComponent = () => {
 
     }
 
+
+
+
     const useStyles = makeStyles((theme:Theme) => ({
         Card:{
             textAlign: "center",
@@ -77,12 +81,6 @@ const TemperatureComponent = () => {
                     <Paper variant="outlined" elevation={24}>{yvtemp}°F</Paper>
 
                 </CardContent>
-                <CardActions>
-
-                    {/*<Button size="small">7 day average</Button>*/}
-                    <ActivitiesManagerComponent/>
-
-                </CardActions>
 
             </Card>
 
@@ -95,12 +93,7 @@ const TemperatureComponent = () => {
                     <Paper variant="outlined" elevation={24}>{tmtemp}°F</Paper>
 
                 </CardContent>
-                <CardActions>
 
-                    {/*<Button size="small">7 day average</Button>*/}
-                    <ActivitiesManagerComponent/>
-
-                </CardActions>
             </Card>
 
 
@@ -108,7 +101,7 @@ const TemperatureComponent = () => {
                 {/*<CardMedia*/}
                 {/*    component="img"*/}
                 {/*    height="140"*/}
-                {/*    image={myimage}*/}
+                {/*    image={pic}*/}
                 {/*/>*/}
                 <CardContent>
 
@@ -116,12 +109,7 @@ const TemperatureComponent = () => {
                     <Paper variant="outlined" elevation={24}>{yvtemp}°F</Paper>
 
                 </CardContent>
-                <CardActions>
 
-                    {/*<Button size="small">7 day average</Button>*/}
-                    <ActivitiesManagerComponent/>
-
-                </CardActions>
             </Card>
 
             <Card sx={{ maxWidth: 300 }} className={classes.Card}>
@@ -132,12 +120,6 @@ const TemperatureComponent = () => {
                     <Paper variant="outlined" elevation={24}>{mgtemp}°F</Paper>
 
                 </CardContent>
-                <CardActions>
-
-                    {/*<Button size="small">7 day average</Button>*/}
-                    <ActivitiesManagerComponent/>
-
-                </CardActions>
 
             </Card>
             </div>

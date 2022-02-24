@@ -1,9 +1,34 @@
 import {Accordion, AccordionDetails, AccordionSummary, Theme, Typography} from "@mui/material";
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import {makeStyles} from "@material-ui/core/styles";
+import DayActivityDisplay from "./DayActivityDisplayComponent";
+import {useEffect, useState} from "react";
+import {Day} from "../../dtos/Day";
+import axios from "axios";
 
 
 const DayOneComponent = () => {
+
+    const [d, setD] = useState([] as Event[])
+
+    useEffect(() => {
+        dayActivities()
+    }, [])
+
+
+    async function dayActivities() {
+        const response = await axios.get('https://l3yu0l18ib.execute-api.us-east-1.amazonaws.com/Yosemite/event');
+        console.log(response.data.payload.dayOne)
+        console.log(response.data.payload.dayTwo)
+        console.log(response.data.payload.dayThree)
+        console.log(response.data.payload.dayFour)
+        console.log(response.data.payload.dayFive)
+        console.log(response.data.payload)
+        setD(response.data.payload.dayFive)
+
+    }
+
+
 
     const useStyles = makeStyles((theme:Theme) => ({
 
@@ -19,6 +44,8 @@ const DayOneComponent = () => {
     }));
 
     const classes = useStyles();
+
+    // @ts-ignore
     return(
         <>
 
@@ -33,9 +60,13 @@ const DayOneComponent = () => {
                         </AccordionSummary>
                         <AccordionDetails className={classes.accBorder}>
 
-                            <Typography>Get the Rental</Typography>
-                            <Typography>Do the deed</Typography>
-                            <Typography>Grab the permits from the Information station</Typography>
+                            {d.map((events, index, e)=>(
+                                <Typography>items</Typography>
+                                ))}
+
+                            Ayooooo
+
+                           {/*<DayActivityDisplay day={d} setDay={setD}/>*/}
 
                         </AccordionDetails>
                     </Accordion>
@@ -53,7 +84,7 @@ const DayOneComponent = () => {
 
                     <AccordionDetails className={classes.accBorder}>
                         <Typography>Get the Rental</Typography>
-                        <Typography>Do the deed</Typography>
+
                         <Typography>Grab the permits from the Information station</Typography>
 
                     </AccordionDetails>
