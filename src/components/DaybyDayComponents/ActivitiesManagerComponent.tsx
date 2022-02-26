@@ -9,6 +9,7 @@ import InputLabel from '@mui/material/InputLabel';
 import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
 import Select, { SelectChangeEvent } from '@mui/material/Select';
+import axios from "axios";
 
 const ActivitiesManagerComponent = () => {
     const [open, setOpen] = React.useState(false);
@@ -16,7 +17,8 @@ const ActivitiesManagerComponent = () => {
     const handleClose = () => setOpen(false);
 
     const [day, setday] = React.useState('');
-    const [value, setValue] = React.useState('Controlled');
+    const [message, setmessage] = React.useState('');
+    const [value, setValue] = React.useState('Add Here');
 
     const style = {
         position: 'absolute' as 'absolute',
@@ -48,11 +50,31 @@ const ActivitiesManagerComponent = () => {
 
     const handleChangeEvent = (event: React.ChangeEvent<HTMLInputElement>) => {
         setValue(event.target.value);
+        setmessage(event.target.value)
         console.log(event.target.value)
     };
 
+    async function addEventf() {
+
+        try{
+            const response = await axios.put('https://l3yu0l18ib.execute-api.us-east-1.amazonaws.com/Yosemite/event',{"message": message,
+                    "day": day});
+
+            console.log(response.data)
+
+        }catch (e: any){
+            console.log(e.message)
+        }
+
+
+
+    }
+
     const addEvent = () =>{
-        ///logic to call api to add the event
+        console.log(message)
+        console.log(day)
+        setOpen(false)
+        addEventf()
     }
 
 
@@ -75,7 +97,7 @@ const ActivitiesManagerComponent = () => {
 
                         <div>
                             <FormControl sx={{ m: 1, minWidth: 80 }}>
-                                <InputLabel id="demo-simple-select-autowidth-label">Age</InputLabel>
+                                <InputLabel id="demo-simple-select-autowidth-label">Day</InputLabel>
                                 <Select
                                     labelId="demo-simple-select-autowidth-label"
                                     id="demo-simple-select-autowidth"

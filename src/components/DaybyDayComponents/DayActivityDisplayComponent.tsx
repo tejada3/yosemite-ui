@@ -10,7 +10,7 @@ import {Day} from "../../dtos/Day";
 interface Activities{
 
     day: Day,
-    setDay:(arg0: Day) => void
+    setDay:(any: Day) => void
 
 
 }

@@ -1,15 +1,18 @@
 import {Accordion, AccordionDetails, AccordionSummary, Theme, Typography} from "@mui/material";
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import {makeStyles} from "@material-ui/core/styles";
-import DayActivityDisplay from "./DayActivityDisplayComponent";
 import {useEffect, useState} from "react";
-import {Day} from "../../dtos/Day";
 import axios from "axios";
 
 
 const DayOneComponent = () => {
 
-    const [d, setD] = useState([] as Event[])
+
+    const [d1, setD1] = useState<any[]>([])
+    const [d2, setD2] = useState<any[]>([])
+    const [d3, setD3] = useState<any[]>([])
+    const [d4, setD4] = useState<any[]>([])
+    const [d5, setD5] = useState<any[]>([])
 
     useEffect(() => {
         dayActivities()
@@ -24,7 +27,12 @@ const DayOneComponent = () => {
         console.log(response.data.payload.dayFour)
         console.log(response.data.payload.dayFive)
         console.log(response.data.payload)
-        setD(response.data.payload.dayFive)
+        setD1(response.data.payload.dayOne)
+        setD2(response.data.payload.dayTwo)
+        setD3(response.data.payload.dayThree)
+        setD4(response.data.payload.dayFour)
+        setD5(response.data.payload.dayFive)
+
 
     }
 
@@ -60,13 +68,14 @@ const DayOneComponent = () => {
                         </AccordionSummary>
                         <AccordionDetails className={classes.accBorder}>
 
-                            {d.map((events, index, e)=>(
-                                <Typography>items</Typography>
-                                ))}
+                            {d1.map(((e, index, ev)=>(
+                                <>
+                                    <hr/>
+                                    <h6>{e.event}</h6>
+                                </>
+                            )))}
 
-                            Ayooooo
 
-                           {/*<DayActivityDisplay day={d} setDay={setD}/>*/}
 
                         </AccordionDetails>
                     </Accordion>
@@ -83,9 +92,13 @@ const DayOneComponent = () => {
                     </AccordionSummary>
 
                     <AccordionDetails className={classes.accBorder}>
-                        <Typography>Get the Rental</Typography>
 
-                        <Typography>Grab the permits from the Information station</Typography>
+                        {d2.map(((e, index, ev)=>(
+                            <>
+                                <hr/>
+                                <h6>{e.event}</h6>
+                            </>
+                        )))}
 
                     </AccordionDetails>
                 </Accordion>
@@ -102,9 +115,12 @@ const DayOneComponent = () => {
                     </AccordionSummary>
                     <AccordionDetails className={classes.accBorder}>
 
-                        <Typography>Get the Rental</Typography>
-                        <Typography>Do the deed</Typography>
-                        <Typography>Grab the permits from the Information station</Typography>
+                        {d3.map(((e, index, ev)=>(
+                            <>
+                                <hr/>
+                                <h6>{e.event}</h6>
+                            </>
+                        )))}
 
                     </AccordionDetails>
                 </Accordion>
@@ -121,9 +137,12 @@ const DayOneComponent = () => {
                     </AccordionSummary>
                     <AccordionDetails className={classes.accBorder}>
 
-                        <Typography>Get the Rental</Typography>
-                        <Typography>Do the deed</Typography>
-                        <Typography>Grab the permits from the Information station</Typography>
+                        {d4.map(((e, index, ev)=>(
+                            <>
+                                <hr/>
+                                <h6>{e.event}</h6>
+                            </>
+                        )))}
 
                     </AccordionDetails>
                 </Accordion>
@@ -140,9 +159,12 @@ const DayOneComponent = () => {
                     </AccordionSummary>
                     <AccordionDetails className={classes.accBorder}>
 
-                        <Typography>Get the Rental</Typography>
-                        <Typography>Do the deed</Typography>
-                        <Typography>Grab the permits from the Information station</Typography>
+                        {d5.map(((e, index, ev)=>(
+                            <>
+                                <hr/>
+                                <h6>{e.event}</h6>
+                            </>
+                        )))}
 
                     </AccordionDetails>
                 </Accordion>
