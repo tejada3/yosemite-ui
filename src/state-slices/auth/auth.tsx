@@ -2,35 +2,35 @@ import {User} from "../../models/user"
 
 
 // @ts-ignore
-import {createSlice} from "@reduxjs/toolkit";
+import {createSlice, PayloadAction} from "@reduxjs/toolkit";
 import {RootState} from "../../store/store";
 
 interface State {
-    user: User | undefined
+    authUser: User | undefined
     email: string;
-    password:string;
-    isAuth: boolean;
+    isAuthenticated: boolean;
 }
 
 const initialState: State = {
-    user: undefined,
-    isAuth: false,
+    authUser: undefined,
+    isAuthenticated: false,
     email: "",
-    password: ""
 }
 
 export const authSlice = createSlice({
-    name: "auth",
+    name: "user",
     initialState,
     reducers:{
 
         loginUserReducer: (state,response:any) => {
-            let email = response.payload.email
-            let token = response.payload.CognitoUserSession.idToken.jwtToken
+            let email = response.payload
+            let token = response.payload
+            console.log(email)
+            console.log(token)
+            console.log("hhhhhh")
 
-
-            state.user = new User(email,false, token)
-            state.isAuth=true
+            state.authUser = new User(email, token)
+            state.isAuthenticated = true
 
         }
 

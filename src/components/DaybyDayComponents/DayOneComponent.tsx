@@ -21,11 +21,7 @@ const DayOneComponent = () => {
 
     async function dayActivities() {
         const response = await axios.get('https://l3yu0l18ib.execute-api.us-east-1.amazonaws.com/Yosemite/event');
-        console.log(response.data.payload.dayOne)
-        console.log(response.data.payload.dayTwo)
-        console.log(response.data.payload.dayThree)
-        console.log(response.data.payload.dayFour)
-        console.log(response.data.payload.dayFive)
+
         console.log(response.data.payload)
         setD1(response.data.payload.dayOne)
         setD2(response.data.payload.dayTwo)

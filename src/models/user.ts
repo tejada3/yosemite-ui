@@ -1,11 +1,9 @@
 export class User{
-    emall: string;
-    isAuth: boolean;
+    email: string;
     token: string;
 
-    constructor(email: string, isAuth: boolean, token: string) {
-        this.emall = email;
-        this.isAuth=isAuth
+    constructor(email: string, token: string) {
+        this.email = email;
         this.token = token
     }
 }
