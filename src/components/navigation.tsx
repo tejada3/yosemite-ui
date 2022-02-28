@@ -15,6 +15,7 @@ import AccountCircle from '@mui/icons-material/AccountCircle';
 import MailIcon from '@mui/icons-material/Mail';
 import NotificationsIcon from '@mui/icons-material/Notifications';
 import MoreIcon from '@mui/icons-material/MoreVert';
+import {useNavigate} from "react-router-dom"
 
 // const Search = styled('div')(({ theme }) => ({
 //     position: 'relative',
@@ -63,6 +64,7 @@ function PrimarySearchAppBar() {
     const isMenuOpen = Boolean(anchorEl);
     const isMobileMenuOpen = Boolean(mobileMoreAnchorEl);
 
+    let history = useNavigate()
     // @ts-ignore
     const handleProfileMenuOpen = (event) => {
         setAnchorEl(event.currentTarget);
@@ -81,6 +83,10 @@ function PrimarySearchAppBar() {
     const handleMobileMenuOpen = (event) => {
         setMobileMoreAnchorEl(event.currentTarget);
     };
+
+    const goToLogin = () =>{
+        history('/login')
+    }
 
     const menuId = 'primary-search-account-menu';
     const renderMenu = (
@@ -174,7 +180,7 @@ function PrimarySearchAppBar() {
                     <Box sx={{ display: { xs: 'none', md: 'flex' } }}>
                         <IconButton size="large" aria-label="show 4 new mails" color="inherit">
                             <Badge badgeContent={0} color="error">
-                                <AccountCircle />
+                                <AccountCircle onClick={goToLogin}/>
                             </Badge>
                         </IconButton>
                     </Box>

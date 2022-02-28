@@ -1,13 +1,32 @@
-import { Container } from "@mui/material";
+import {Box, Button, Container, TextField, Theme} from "@mui/material";
 import { CognitoUser, AuthenticationDetails } from "amazon-cognito-identity-js";
 import React, { useState } from "react";
 import UserPool from "../../remote/UserPool";
+import {makeStyles} from "@material-ui/core/styles";
+import { useSelector, useDispatch } from 'react-redux'
+import {authState, loginUserReducer} from "../../state-slices/auth/auth";
+import {useNavigate} from "react-router-dom"
 
 const Login = () => {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
+    const dispatch = useDispatch();
 
+    const history = useNavigate();
 
+    const useStyles = makeStyles((theme:Theme) => ({
+        loginDiv:{
+            textAlign:'center',
+            backgroundColor: 'honeydew',
+            marginTop: 20,
+
+        },
+        form:{
+            marginBottom:20
+        }
+    }));
+
+    const classes = useStyles();
     const onSubmit = (event: any) => {
         event.preventDefault();
 
@@ -23,7 +42,11 @@ const Login = () => {
 
         user.authenticateUser(authDetails, {
             onSuccess: (data) => {
+
+                dispatch(loginUserReducer(data))
                 console.log("onSuccess: ", data)
+                history('/')
+
             },
             onFailure: (err) => {
                 console.error("onFailure: ",err);
@@ -34,50 +57,55 @@ const Login = () => {
         });
     };
 
-    // return(
-    //     <div>
-    //         <form onSubmit={onSubmit}>
-                // <label htmlFor="email">Email</label>
-                // <input
-                //     value={email}
-                //     onChange={semail}
-                // ></input>
-    //             <label htmlFor="password">Password</label>
-    //             <input
-    //                 value={password}
-    //                 onChange={(event) => setPassword(event.target.value)}
-    //             ></input>
-
-    //             <button type="submit">Singup</button>
-    //         </form>
-    //     </div>
-    // );
     return (
         <>
-            <Container style={{width:'30em' ,justifyContent: 'center' }}>
-            <form onSubmit={onSubmit}>
-         
-                <br/>     
-                <br/>    
-                <h1  style={{color: '#4E3E61 ' ,  textAlign: 'center' ,fontFamily:"Emilys Candy"}}><b> <span  >LOGIN</span> </b></h1> 
-                <hr/>
-                <br/>    
-     
-                <h1><b></b></h1>
-                <label htmlFor="email">Email: </label>
-                <input
-                    value={email}
-                    onChange={(event) => setEmail(event.target.value)}
-                ></input>
-                <br/><br/>
-                <label htmlFor="Password">Password: </label>
-                <input
-                    value={password}
-                    onChange={(event) => setPassword(event.target.value)}
-                ></input>
-                <br/><br/>
-                <button type="submit">Login</button>
-            </form>
+            <Container style={{width:'30em' ,justifyContent: 'center', height: '100em'}}>
+
+                <form onSubmit={onSubmit} className={classes.form}>
+                    <div className={classes.loginDiv}>
+
+                        <br/>
+                        <h1  style={{color: '#4E3E61 ' ,  textAlign: 'center' ,fontFamily:"Emilys Candy"}}><b> <span  >LOGIN</span> </b></h1>
+                        <hr/>
+                        <br/>
+
+                        <Box
+                            component="form"
+                            sx={{
+                                '& .MuiTextField-root': { m: 1, width: '25ch' },
+                            }}
+                            noValidate
+                            autoComplete="off"
+                        >
+                            <div>
+                                <TextField
+                                    required
+                                    id="outlined-required"
+                                    label="Email"
+                                    onChange={(event)=>setEmail(event.target.value)}
+                                />
+                            </div>
+
+                            <div>
+                                <TextField
+                                    required
+                                    id="filled-required"
+                                    label="Password"
+                                    variant="filled"
+                                    onChange={(event)=>setPassword(event.target.value)}
+                                />
+                            </div>
+
+                        </Box>
+
+                        <Button type="submit" variant="contained" color="success" className={classes.form}>
+                            Success
+                        </Button>
+
+                    </div>
+
+
+                </form>
             </Container>
         </>
     );

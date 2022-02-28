@@ -1,7 +1,7 @@
 import axios from 'axios';
 import apiUrl from './api-url';
 
-export const quizzardApiClient = axios.create({
+export const ApiClient = axios.create({
     baseURL: apiUrl,
     headers: {
         'Content-Type': 'application/json',

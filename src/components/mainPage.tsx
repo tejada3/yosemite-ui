@@ -8,11 +8,15 @@ import SuppliesComponent from "./supplyComponents/SuppliesPage";
 import InformationComponent from "./infomationComponents/InformationComponent";
 import DayOneComponent from "./DaybyDayComponents/DayOneComponent";
 import ActivitiesManagerComponent from "./DaybyDayComponents/ActivitiesManagerComponent";
-
+import {authState} from "../state-slices/auth/auth"
+import {User} from "../models/user"
+import {useSelector} from "react-redux";
 
 
 
 const DailtInfo = () => {
+
+    const user: User = useSelector(authState)?.user
 
     const useStyles = makeStyles((theme:Theme) => ({
 
@@ -82,7 +86,15 @@ const DailtInfo = () => {
             </Container>
 
             <Container className={classes.ContainerDays}>
-                <ActivitiesManagerComponent/>
+
+                {user
+                    ?
+
+                    <h1>in it </h1>
+
+                    :
+                    <h1>not in it </h1>
+                }
 
                 <DayOneComponent/>
             </Container>
