@@ -6,17 +6,15 @@ import {createSlice} from "@reduxjs/toolkit";
 import {RootState} from "../../store/store";
 
 interface State {
-    user: User | undefined
     email: string;
-    password:string;
     isAuth: boolean;
+    token: string;
 }
 
 const initialState: State = {
-    user: undefined,
     isAuth: false,
     email: "",
-    password: ""
+    token: ""
 }
 
 export const authSlice = createSlice({
@@ -25,13 +23,10 @@ export const authSlice = createSlice({
     reducers:{
 
         loginUserReducer: (state,response:any) => {
-            let email = response.payload.email
-            let token = response.payload.CognitoUserSession.idToken.jwtToken
-
-
-            state.user = new User(email,false, token)
-            state.isAuth=true
-
+            console.log(response);
+            state.email = response.payload.email
+            state.token = response.payload.accessToken.jwtToken
+            state.isAuth = true
         }
 
     }
