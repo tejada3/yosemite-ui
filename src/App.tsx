@@ -6,7 +6,9 @@ import './App.css';
 import DailtInfo from "./components/mainPage";
 import {makeStyles} from "@material-ui/core/styles";
 import {Theme} from "@mui/material";
-import yosemite from "./assets/LA6IXZ.jpg"
+import yosemite from "./assets/LA6IXZ.jpg";
+import Register from "./components/Register/Register";
+import Login from "./components/Login/Login";
 
 function App() {
 
@@ -24,19 +26,21 @@ function App() {
     //@ts-ignore
     return (
       <>
-          <Router >
+            <Login />
+            {/* <Register /> */}
+          {/* <Router >
               <div className={classes.route}>
-              <PrimarySearchAppBar />
 
+                <PrimarySearchAppBar />
 
-              <div className={classes.div}>
+                <div className={classes.div}>
 
-                  <DailtInfo />
+                    <DailtInfo />
+
+                </div>
 
               </div>
-
-              </div>
-          </Router>
+          </Router> */}
       </>
   );
 }
