@@ -16,6 +16,8 @@
     "@types/node": "^16.11.22",
     "@types/react": "^17.0.38",
     "@types/react-dom": "^17.0.11",
+    "amazon-cognito-identity-js": "^5.2.6",
+    "aws-sdk": "^2.1082.0",
     "axios": "^0.25.0",
     "react": "^17.0.2",
     "react-bootstrap": "^2.1.2",

@@ -41,8 +41,10 @@ const DayOneComponent = () => {
     const useStyles = makeStyles((theme:Theme) => ({
 
         dayOneDiv:{
-            marginTop: 20,
-            marginBottom: 20
+            marginTop: 10,
+            marginBottom: 10,
+            marginRight:300,
+            marginLeft:300
         },
         accBorder:{
             border: "solid",

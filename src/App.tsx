@@ -5,12 +5,13 @@ import PrimarySearchAppBar from "./components/navigation";
 import './App.css';
 import DailtInfo from "./components/mainPage";
 import {makeStyles} from "@material-ui/core/styles";
-import {Container, Theme} from "@mui/material";
-import pic from "./static/img.png"
+import {Theme} from "@mui/material";
 import YoVal from "./static/yoVal.png"
-import {FormatAlignJustify} from "@mui/icons-material";
-import Navigation from "./components/navigation";
 import LoginPage from "./components/LoginPage";
+
+
+
+
 
 function App() {
 
@@ -19,6 +20,7 @@ function App() {
             backgroundColor: "honeydew",
             backgroundImage: `url(${YoVal})`,
             backgroundRepeat: 'round',
+
 
         }
 
@@ -41,6 +43,8 @@ function App() {
 
           </Router>
           </div>
+
+
       </>
   );
 }
