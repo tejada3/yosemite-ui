@@ -17,7 +17,7 @@ import {useSelector, useDispatch} from "react-redux";
 
 const DailtInfo = () => {
 
-    const user: User = useSelector(authState)?.user
+    const user: User = useSelector(authState)
 
     const useStyles = makeStyles((theme:Theme) => ({
 
@@ -29,7 +29,6 @@ const DailtInfo = () => {
             marginTop: 20,
             textAlign: 'center',
             width: 100
-
         },
 
         SuppliesContainer: {

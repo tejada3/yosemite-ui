@@ -6,15 +6,17 @@ import {createSlice, PayloadAction} from "@reduxjs/toolkit";
 import {RootState} from "../../store/store";
 
 interface State {
-    authUser: User | undefined
+
     email: string;
-    isAuthenticated: boolean;
+    isAuth: boolean;
+    token: string;
 }
 
 const initialState: State = {
-    authUser: undefined,
-    isAuthenticated: false,
+    isAuth: false,
     email: "",
+    token: ""
+
 }
 
 export const authSlice = createSlice({
@@ -23,15 +25,10 @@ export const authSlice = createSlice({
     reducers:{
 
         loginUserReducer: (state,response:any) => {
-            let email = response.payload
-            let token = response.payload
-            console.log(email)
-            console.log(token)
-            console.log("hhhhhh")
-
-            state.authUser = new User(email, token)
-            state.isAuthenticated = true
-
+            console.log(response);
+            state.email = response.payload.email
+            state.token = response.payload.accessToken.jwtToken
+            state.isAuth = true
         }
 
     }
