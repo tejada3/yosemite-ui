@@ -63,7 +63,7 @@ const DailtInfo = () => {
 
     const classes = useStyles();
     return(
-        <>
+        <div>
 
             <div className={classes.Container}>
                 <TemperatureComponent/>
@@ -93,7 +93,7 @@ const DailtInfo = () => {
             </Container>
 
 
-        </>
+        </div>
 
 
 

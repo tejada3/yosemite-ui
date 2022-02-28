@@ -10,6 +10,7 @@ import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
 import Select, { SelectChangeEvent } from '@mui/material/Select';
 import axios from "axios";
+import {useEffect} from "react";
 
 const ActivitiesManagerComponent = () => {
     const [open, setOpen] = React.useState(false);
@@ -20,6 +21,7 @@ const ActivitiesManagerComponent = () => {
     const [message, setmessage] = React.useState('');
     const [value, setValue] = React.useState('Add Here');
 
+    
     const style = {
         position: 'absolute' as 'absolute',
         top: '50%',
@@ -33,6 +35,7 @@ const ActivitiesManagerComponent = () => {
         textAlign: 'center'
 
     };
+   
 
     const useStyles = makeStyles((theme:Theme) => ({
         button:{
@@ -73,8 +76,9 @@ const ActivitiesManagerComponent = () => {
     const addEvent = () =>{
         console.log(message)
         console.log(day)
-        setOpen(false)
         addEventf()
+        setOpen(false)
+
     }
 
 

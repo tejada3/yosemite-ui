@@ -47,6 +47,9 @@ const DayOneComponent = () => {
         accBorder:{
             border: "solid",
             borderStyle: "outset"
+        },
+        infoDiv:{
+          borderStyle:"outset"
         }
 
     }));
@@ -68,14 +71,14 @@ const DayOneComponent = () => {
                         </AccordionSummary>
                         <AccordionDetails className={classes.accBorder}>
 
+                            <div className={classes.infoDiv}>
                             {d1.map(((e, index, ev)=>(
                                 <>
                                     <hr/>
                                     <h6>{e.event}</h6>
                                 </>
                             )))}
-
-
+                            </div>
 
                         </AccordionDetails>
                     </Accordion>
@@ -93,12 +96,14 @@ const DayOneComponent = () => {
 
                     <AccordionDetails className={classes.accBorder}>
 
+                        <div className={classes.infoDiv}>
                         {d2.map(((e, index, ev)=>(
                             <>
                                 <hr/>
                                 <h6>{e.event}</h6>
                             </>
                         )))}
+                        </div>
 
                     </AccordionDetails>
                 </Accordion>
@@ -115,12 +120,14 @@ const DayOneComponent = () => {
                     </AccordionSummary>
                     <AccordionDetails className={classes.accBorder}>
 
+                        <div className={classes.infoDiv}>
                         {d3.map(((e, index, ev)=>(
                             <>
                                 <hr/>
                                 <h6>{e.event}</h6>
                             </>
                         )))}
+                        </div>
 
                     </AccordionDetails>
                 </Accordion>
@@ -137,12 +144,14 @@ const DayOneComponent = () => {
                     </AccordionSummary>
                     <AccordionDetails className={classes.accBorder}>
 
+                        <div className={classes.infoDiv}>
                         {d4.map(((e, index, ev)=>(
                             <>
                                 <hr/>
                                 <h6>{e.event}</h6>
                             </>
                         )))}
+                        </div>
 
                     </AccordionDetails>
                 </Accordion>
@@ -159,13 +168,15 @@ const DayOneComponent = () => {
                     </AccordionSummary>
                     <AccordionDetails className={classes.accBorder}>
 
-                        {d5.map(((e, index, ev)=>(
-                            <>
-                                <hr/>
-                                <h6>{e.event}</h6>
-                            </>
-                        )))}
 
+                        <div className={classes.infoDiv}>
+                            {d5.map(((e, index, ev)=>(
+                                <>
+                                    <hr/>
+                                    <h6>{e.event}</h6>
+                                </>
+                            )))}
+                        </div>
                     </AccordionDetails>
                 </Accordion>
 
