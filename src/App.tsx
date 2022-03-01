@@ -7,11 +7,8 @@ import DailtInfo from "./components/mainPage";
 import {makeStyles} from "@material-ui/core/styles";
 import {Theme} from "@mui/material";
 import YoVal from "./static/yoVal.png"
-import LoginPage from "./components/LoginPage";
 import Login from "./components/Login/Login";
-
-
-
+import Register from "./components/Register/Register";
 
 
 function App() {
@@ -21,8 +18,6 @@ function App() {
             backgroundColor: "honeydew",
             backgroundImage: `url(${YoVal})`,
             backgroundRepeat: 'round',
-
-
         }
 
     }));
@@ -38,7 +33,9 @@ function App() {
                      <Routes>
 
                         <Route path='/' element={<DailtInfo/>}/>
-                         <Route path='/login' element={<Login/>}/>
+                        <Route path='/login' element={<Login/>}/>
+                        <Route path='/register' element={<Register/>}/>
+
 
                      </Routes>
 
