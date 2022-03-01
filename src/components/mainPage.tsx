@@ -10,7 +10,7 @@ import DayOneComponent from "./DaybyDayComponents/DayOneComponent";
 import ActivitiesManagerComponent from "./DaybyDayComponents/ActivitiesManagerComponent";
 import {authState} from "../state-slices/auth/auth"
 import {User} from "../models/user"
-import {useSelector, useDispatch} from "react-redux";
+import {useSelector} from "react-redux";
 
 
 
@@ -87,13 +87,13 @@ const DailtInfo = () => {
 
             <Container className={classes.ContainerDays}>
 
-                {user
+                {user.isAuth
                     ?
 
-                    <h1>in it </h1>
+                    <ActivitiesManagerComponent/>
 
                     :
-                    <h1>not in it </h1>
+                   ''
                 }
 
                 <DayOneComponent/>

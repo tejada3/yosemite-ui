@@ -10,7 +10,7 @@ import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
 import Select, { SelectChangeEvent } from '@mui/material/Select';
 import axios from "axios";
-import {useEffect} from "react";
+import {useNavigate} from "react-router-dom";
 
 const ActivitiesManagerComponent = () => {
     const [open, setOpen] = React.useState(false);
@@ -20,6 +20,7 @@ const ActivitiesManagerComponent = () => {
     const [day, setday] = React.useState('');
     const [message, setmessage] = React.useState('');
     const [value, setValue] = React.useState('Add Here');
+    let history = useNavigate()
 
     
     const style = {
@@ -77,8 +78,9 @@ const ActivitiesManagerComponent = () => {
         console.log(message)
         console.log(day)
         addEventf()
-        setOpen(false)
 
+        setOpen(false)
+        history('/')
     }
 
 

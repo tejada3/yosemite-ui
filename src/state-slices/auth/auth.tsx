@@ -7,12 +7,14 @@ import {RootState} from "../../store/store";
 
 interface State {
 
+    authUser: User | undefined;
     email: string;
     isAuth: boolean;
     token: string;
 }
 
 const initialState: State = {
+    authUser: undefined,
     isAuth: false,
     email: "",
     token: ""
@@ -28,7 +30,15 @@ export const authSlice = createSlice({
             console.log(response);
             state.email = response.payload.email
             state.token = response.payload.accessToken.jwtToken
+
+            state.authUser = new User(response.payload.email, true, response.payload.accessToken.jwtToken)
             state.isAuth = true
+        },
+        logoutUserReducer: (state)=>{
+            state.authUser = undefined
+            state.isAuth = false
+            state.email = ""
+            state.token=""
         }
 
     }
@@ -37,6 +47,6 @@ export const authSlice = createSlice({
 
 })
 
-export const {loginUserReducer} = authSlice.actions;
+export const {loginUserReducer, logoutUserReducer} = authSlice.actions;
 export const authState = (state: RootState) => state.auth;
 export default authSlice.reducer
