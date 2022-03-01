@@ -23,7 +23,7 @@ export const authSlice = createSlice({
     reducers:{
 
         loginUserReducer: (state,response:any) => {
-            console.log(response);
+
             state.email = response.payload.email
             state.token = response.payload.accessToken.jwtToken
             state.isAuth = true

@@ -21,8 +21,11 @@ const Login = () => {
             marginTop: 20,
 
         },
-        form:{
-            marginBottom:20
+        button:{
+            marginTop:40
+        },
+        hr:{
+            margin:10
         }
     }));
 
@@ -43,9 +46,9 @@ const Login = () => {
         user.authenticateUser(authDetails, {
             onSuccess: (data) => {
 
-                dispatch(loginUserReducer(data))
-                console.log("onSuccess: ", data)
-                history('/')
+                dispatch(loginUserReducer(data));
+                console.log("onSuccess: ", data);
+                history('/');
 
             },
             onFailure: (err) => {
@@ -61,12 +64,12 @@ const Login = () => {
         <>
             <Container style={{width:'30em' ,justifyContent: 'center', height: '100em'}}>
 
-                <form onSubmit={onSubmit} className={classes.form}>
+                <form onSubmit={onSubmit}>
                     <div className={classes.loginDiv}>
 
                         <br/>
                         <h1  style={{color: '#4E3E61 ' ,  textAlign: 'center' ,fontFamily:"Emilys Candy"}}><b> <span  >LOGIN</span> </b></h1>
-                        <hr/>
+                        <hr className={classes.hr}/>
                         <br/>
 
                         <Box
@@ -98,9 +101,15 @@ const Login = () => {
 
                         </Box>
 
-                        <Button type="submit" variant="contained" color="success" className={classes.form}>
-                            Success
+                        <Button type="submit" variant="contained" color="success">
+                            Login
                         </Button>
+                        <br/>
+                        <p></p>
+                        <Button onClick={()=>history("/register")} variant="text" color="primary" className={classes.button}>
+                            Register
+                        </Button>
+                        <hr/>
 
                     </div>
 
