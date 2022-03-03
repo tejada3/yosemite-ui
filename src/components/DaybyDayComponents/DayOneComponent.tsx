@@ -9,7 +9,6 @@ import {activitiesState} from "../../state-slices/DaytoDay/Activites"
 
 const DayOneComponent = () => {
 
-
     const [d1, setD1] = useState<any[]>([])
     const [d2, setD2] = useState<any[]>([])
     const [d3, setD3] = useState<any[]>([])
