@@ -11,11 +11,15 @@ import FormControl from '@mui/material/FormControl';
 import Select, { SelectChangeEvent } from '@mui/material/Select';
 import axios from "axios";
 import {useNavigate} from "react-router-dom";
+import ErrorMessageComponent from '../utilComponents/ErrorMessageComponent';
+import { render } from 'react-dom';
+import { useState } from 'react';
 
 const ActivitiesManagerComponent = () => {
     const [open, setOpen] = React.useState(false);
     const handleOpen = () => setOpen(true);
     const handleClose = () => setOpen(false);
+    const [errorMessage, setErrorMessage] = useState('');
 
     const [day, setday] = React.useState('');
     const [message, setmessage] = React.useState('');
@@ -65,6 +69,9 @@ const ActivitiesManagerComponent = () => {
                     "day": day});
 
             console.log(response.data)
+            setErrorMessage("added event successfullyy")
+
+
 
         }catch (e: any){
             console.log(e.message)
@@ -81,6 +88,7 @@ const ActivitiesManagerComponent = () => {
 
         setOpen(false)
         history('/')
+
     }
 
 
@@ -156,6 +164,11 @@ const ActivitiesManagerComponent = () => {
                     </Box>
                 </Modal>
             </div>
+
+            { errorMessage ? <ErrorMessageComponent message={errorMessage}/> : <></> }
+
+
+
 
         </>
     )
