@@ -27,7 +27,7 @@ const DailtInfo = () => {
         ContainerDays:{
             marginTop: 20,
             textAlign: 'center',
-            width: 100
+            width: 600
         },
 
         SuppliesContainer: {
