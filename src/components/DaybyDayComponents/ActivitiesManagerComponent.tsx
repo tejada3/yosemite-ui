@@ -73,8 +73,6 @@ const ActivitiesManagerComponent = () => {
             console.log(e.message)
         }
 
-
-
     }
 
     const addEvent = () =>{
