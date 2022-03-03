@@ -38,7 +38,6 @@ const ActivitiesManagerComponent = () => {
         boxShadow: 24,
         p: 4,
         textAlign: 'center'
-
     };
    
 
