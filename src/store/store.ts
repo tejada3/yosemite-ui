@@ -2,13 +2,18 @@ import { configureStore } from "@reduxjs/toolkit";
 
 import authReducer, {logoutUserReducer} from "../state-slices/auth/auth";
 import activitiesReducer from "../state-slices/DaytoDay/Activites";
+import  showSnackbar, {setFailureMessage, setInfoMessage, setSuccessMessage }  from "../state-slices/error/error-slice";
 
 
 export const store = configureStore({
 
     reducer:{
         auth: authReducer,
-        activities: activitiesReducer
+        activities: activitiesReducer,
+        error: showSnackbar,
+        setSuccess: setSuccessMessage,
+        setFailure: setFailureMessage,
+        setInfo: setInfoMessage
     }
 
 })

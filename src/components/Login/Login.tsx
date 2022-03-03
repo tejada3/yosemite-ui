@@ -6,6 +6,7 @@ import {makeStyles} from "@material-ui/core/styles";
 import { useSelector, useDispatch } from 'react-redux'
 import {authState, loginUserReducer} from "../../state-slices/auth/auth";
 import {useNavigate} from "react-router-dom"
+import {setFailureMessage, setSuccessMessage, showSnackbar } from "../../state-slices/error/error-slice";
 
 const Login = () => {
     const [email, setEmail] = useState("");
@@ -48,11 +49,15 @@ const Login = () => {
 
                 dispatch(loginUserReducer(data));
                 console.log("onSuccess: ", data);
+                dispatch(setSuccessMessage())
+                dispatch(showSnackbar("Welcome"))
                 history('/');
 
             },
             onFailure: (err) => {
                 console.error("onFailure: ",err);
+                dispatch(setFailureMessage())
+                dispatch(showSnackbar(err.message))
             },
             newPasswordRequired: (data) => {
                 console.log("newPasswordRequired: ", data);

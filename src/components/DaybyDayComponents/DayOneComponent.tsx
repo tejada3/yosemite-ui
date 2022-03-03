@@ -8,8 +8,8 @@ import DayActivityDisplay from "./DayActivityDisplayComponent";
 import {authState} from "../../state-slices/auth/auth"
 import {User} from "../../models/user"
 import {useSelector} from "react-redux";
-import {activitiesState} from "../../state-slices/DaytoDay/Activites"
 
+import {activitiesState} from "../../state-slices/DaytoDay/Activites"
 
 
 const DayOneComponent = () => {
@@ -41,250 +41,249 @@ const DayOneComponent = () => {
         console.log(response.data.payload.dayFive.self)
         console.log("-----")
 
-
-        const useStyles = makeStyles((theme: Theme) => ({
-
-            dayOneDiv: {
-                marginTop: 10,
-                marginBottom: 10,
-            },
-            accBorder: {
-                border: "solid",
-                borderStyle: "outset",
-            },
-            infoDiv: {
-                borderStyle: "outset",
-                textAlign: 'left',
-            },
-
-            row: {
-                display: 'inline-flex',
-                alignItems: 'space-between',
-            },
-            col2: {
-                textAlign: 'left',
-                width: 'max-content'
-            },
-            col1: {
-                marginTop: 5,
-                marginLeft: 50,
-                width: 900
-            }
-        }));
-
-        const classes = useStyles();
-
-        const deleteEvent = (day: string, order: string) => (
-            '<DayActivityDisplay day={day} order={order} />'
-
-        )
-
-        return (
-            <>
-
-
-                <div className={classes.dayOneDiv}>
-                    <Accordion>
-                        <AccordionSummary
-                            expandIcon={<ExpandMoreIcon/>}
-                            aria-controls="panel1a-content"
-                            id="panel1a-header"
-                        >
-                            <Typography>Day 1</Typography>
-                        </AccordionSummary>
-                        <AccordionDetails className={classes.accBorder}>
-
-                            <div className={classes.infoDiv}>
-                                {d1.map(((e, index, ev) => (
-                                    <>
-                                        <hr/>
-                                        <div>
-                                            <div className={classes.row}>
-
-                                                <div className={classes.col1}>
-                                                    {e.event}
-                                                </div>
-
-                                                <div className={classes.col2}>
-
-                                                    {user.isAuth ?
-
-                                                        ''
-                                                        :
-                                                        <IconButton aria-label="delete" size="large">
-                                                            <DayActivityDisplay day={"dayOne"}
-                                                                                order={String(index + 1)}/>
-                                                        </IconButton>
-
-                                                    }
-
-                                                </div>
-
-                                            </div>
-                                        </div>
-                                    </>
-                                )))}
-                            </div>
-
-                        </AccordionDetails>
-                    </Accordion>
-
-                </div>
-                <div className={classes.dayOneDiv}>
-                    <Accordion>
-                        <AccordionSummary
-                            expandIcon={<ExpandMoreIcon/>}
-                            aria-controls="panel1a-content"
-                            id="panel1a-header"
-                        >
-                            <Typography>Day 2</Typography>
-                        </AccordionSummary>
-                        <AccordionDetails className={classes.accBorder}>
-
-                            <div className={classes.infoDiv}>
-                                {d2.map(((e, index, ev) => (
-                                    <>
-                                        <hr/>
-                                        <div>
-                                            <div className={classes.row}>
-
-                                                <div className={classes.col1}>
-                                                    {e.event}
-                                                </div>
-
-                                                <div className={classes.col2}>
-                                                    <IconButton aria-label="delete" size="large">
-                                                        <DeleteIcon fontSize="inherit" color={'error'}/>
-                                                    </IconButton>
-                                                </div>
-
-                                            </div>
-                                        </div>
-                                    </>
-                                )))}
-                            </div>
-
-                        </AccordionDetails>
-                    </Accordion>
-
-                </div>
-                <div className={classes.dayOneDiv}>
-                    <Accordion>
-                        <AccordionSummary
-                            expandIcon={<ExpandMoreIcon/>}
-                            aria-controls="panel1a-content"
-                            id="panel1a-header"
-                        >
-                            <Typography>Day 3</Typography>
-                        </AccordionSummary>
-                        <AccordionDetails className={classes.accBorder}>
-
-                            <div className={classes.infoDiv}>
-                                {d3.map(((e, index, ev) => (
-                                    <>
-                                        <hr/>
-                                        <div>
-                                            <div className={classes.row}>
-
-                                                <div className={classes.col1}>
-                                                    {e.event}
-                                                </div>
-
-                                                <div className={classes.col2}>
-                                                    <IconButton aria-label="delete" size="large">
-                                                        <DeleteIcon fontSize="inherit" color={'error'}/>
-                                                    </IconButton>
-                                                </div>
-
-                                            </div>
-                                        </div>
-                                    </>
-                                )))}
-                            </div>
-
-                        </AccordionDetails>
-                    </Accordion>
-
-                </div>
-                <div className={classes.dayOneDiv}>
-                    <Accordion>
-                        <AccordionSummary
-                            expandIcon={<ExpandMoreIcon/>}
-                            aria-controls="panel1a-content"
-                            id="panel1a-header"
-                        >
-                            <Typography>Day 4</Typography>
-                        </AccordionSummary>
-                        <AccordionDetails className={classes.accBorder}>
-
-                            <div className={classes.infoDiv}>
-                                {d4.map(((e, index, ev) => (
-                                    <>
-                                        <hr/>
-                                        <div>
-                                            <div className={classes.row}>
-
-                                                <div className={classes.col1}>
-                                                    {e.event}
-                                                </div>
-
-                                                <div className={classes.col2}>
-                                                    <IconButton aria-label="delete" size="large">
-                                                        <DeleteIcon fontSize="inherit" color={'error'}/>
-                                                    </IconButton>
-                                                </div>
-
-                                            </div>
-                                        </div>
-                                    </>
-                                )))}
-                            </div>
-
-                        </AccordionDetails>
-                    </Accordion>
-
-                </div>
-                <div className={classes.dayOneDiv}>
-                    <Accordion>
-                        <AccordionSummary
-                            expandIcon={<ExpandMoreIcon/>}
-                            aria-controls="panel1a-content"
-                            id="panel1a-header"
-                        >
-                            <Typography>Day 5</Typography>
-                        </AccordionSummary>
-                        <AccordionDetails className={classes.accBorder}>
-
-
-                            <div className={classes.infoDiv}>
-                                {d5.map(((e, index, ev) => (
-                                    <>
-                                        <hr/>
-                                        <div>
-                                            <div className={classes.row}>
-
-                                                <div className={classes.col1}>
-                                                    {e.event}
-                                                </div>
-
-                                                <div className={classes.col2}>
-                                                    <IconButton aria-label="delete" size="large">
-                                                        <DeleteIcon fontSize="inherit" color={'error'}/>
-                                                    </IconButton>
-                                                </div>
-
-                                            </div>
-                                        </div>
-                                    </>
-                                )))}
-                            </div>
-                        </AccordionDetails>
-                    </Accordion>
-
-                </div>
-            </>
-        )
     }
+
+    const useStyles = makeStyles((theme:Theme) => ({
+
+        dayOneDiv:{
+            marginTop: 10,
+            marginBottom: 10,
+        },
+        accBorder:{
+            border: "solid",
+            borderStyle: "outset",
+        },
+        infoDiv:{
+          borderStyle:"outset",
+          textAlign: 'left',
+        },
+
+        row:{
+            display: 'inline-flex',
+            alignItems: 'space-between',
+        },
+        col2:{
+            textAlign: 'left',
+            width: 'max-content'
+        },
+        col1:{
+            marginTop: 5,
+            marginLeft: 50,
+            width: 900
+        }
+    }));
+
+    const classes = useStyles();
+
+    const deleteEvent = (day: string, order: string) =>(
+        '<DayActivityDisplay day={day} order={order} />'
+
+    )
+
+    return(
+        <>
+
+
+                <div className={classes.dayOneDiv}>
+                    <Accordion>
+                        <AccordionSummary
+                            expandIcon={<ExpandMoreIcon />}
+                            aria-controls="panel1a-content"
+                            id="panel1a-header"
+                        >
+                        <Typography>Day 1</Typography>
+                        </AccordionSummary>
+                        <AccordionDetails className={classes.accBorder}>
+
+                            <div className={classes.infoDiv}>
+                            {d1.map(((e, index, ev)=>(
+                                <>
+                                    <hr/>
+                                    <div>
+                                        <div className={classes.row}>
+
+                                            <div className={classes.col1}>
+                                                {e.event}
+                                            </div>
+
+                                            <div className={classes.col2}>
+
+                                                {user.isAuth?
+
+                                                    <IconButton aria-label="delete" size="large">
+                                                        <DayActivityDisplay day={"dayOne"} order={String(index + 1)} />
+                                                    </IconButton>
+                                                    :
+
+                                                    ''
+                                                }
+
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </>
+                            )))}
+                            </div>
+
+                        </AccordionDetails>
+                    </Accordion>
+
+                </div>
+            <div className={classes.dayOneDiv}>
+                <Accordion>
+                    <AccordionSummary
+                        expandIcon={<ExpandMoreIcon />}
+                        aria-controls="panel1a-content"
+                        id="panel1a-header"
+                    >
+                    <Typography>Day 2</Typography>
+                    </AccordionSummary>
+                    <AccordionDetails className={classes.accBorder}>
+
+                        <div className={classes.infoDiv}>
+                            {d2.map(((e, index, ev)=>(
+                                <>
+                                    <hr/>
+                                    <div>
+                                        <div className={classes.row}>
+
+                                            <div className={classes.col1}>
+                                                {e.event}
+                                            </div>
+
+                                            <div className={classes.col2}>
+                                                <IconButton aria-label="delete" size="large">
+                                                    <DeleteIcon fontSize="inherit" color={'error'}/>
+                                                </IconButton>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </>
+                            )))}
+                        </div>
+
+                    </AccordionDetails>
+                </Accordion>
+
+            </div>
+            <div className={classes.dayOneDiv}>
+                <Accordion>
+                    <AccordionSummary
+                        expandIcon={<ExpandMoreIcon />}
+                        aria-controls="panel1a-content"
+                        id="panel1a-header"
+                    >
+                        <Typography>Day 3</Typography>
+                    </AccordionSummary>
+                    <AccordionDetails className={classes.accBorder}>
+
+                        <div className={classes.infoDiv}>
+                            {d3.map(((e, index, ev)=>(
+                                <>
+                                    <hr/>
+                                    <div>
+                                        <div className={classes.row}>
+
+                                            <div className={classes.col1}>
+                                                {e.event}
+                                            </div>
+
+                                            <div className={classes.col2}>
+                                                <IconButton aria-label="delete" size="large">
+                                                    <DeleteIcon fontSize="inherit" color={'error'}/>
+                                                </IconButton>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </>
+                            )))}
+                        </div>
+
+                    </AccordionDetails>
+                </Accordion>
+
+            </div>
+            <div className={classes.dayOneDiv}>
+                <Accordion>
+                    <AccordionSummary
+                        expandIcon={<ExpandMoreIcon />}
+                        aria-controls="panel1a-content"
+                        id="panel1a-header"
+                    >
+                        <Typography>Day 4</Typography>
+                    </AccordionSummary>
+                    <AccordionDetails className={classes.accBorder}>
+
+                        <div className={classes.infoDiv}>
+                            {d4.map(((e, index, ev)=>(
+                                <>
+                                    <hr/>
+                                    <div>
+                                        <div className={classes.row}>
+
+                                            <div className={classes.col1}>
+                                                {e.event}
+                                            </div>
+
+                                            <div className={classes.col2}>
+                                                <IconButton aria-label="delete" size="large">
+                                                    <DeleteIcon fontSize="inherit" color={'error'}/>
+                                                </IconButton>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </>
+                            )))}
+                        </div>
+
+                    </AccordionDetails>
+                </Accordion>
+
+            </div>
+            <div className={classes.dayOneDiv}>
+                <Accordion>
+                    <AccordionSummary
+                        expandIcon={<ExpandMoreIcon />}
+                        aria-controls="panel1a-content"
+                        id="panel1a-header"
+                    >
+                        <Typography>Day 5</Typography>
+                    </AccordionSummary>
+                    <AccordionDetails className={classes.accBorder}>
+
+
+                        <div className={classes.infoDiv}>
+                            {d5.map(((e, index, ev)=>(
+                                <>
+                                    <hr/>
+                                    <div>
+                                        <div className={classes.row}>
+
+                                            <div className={classes.col1}>
+                                                {e.event}
+                                            </div>
+
+                                            <div className={classes.col2}>
+                                                <IconButton aria-label="delete" size="large">
+                                                    <DeleteIcon fontSize="inherit" color={'error'}/>
+                                                </IconButton>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </>
+                            )))}
+                        </div>
+                    </AccordionDetails>
+                </Accordion>
+
+            </div>
+        </>
+    )
 }
 
 export default DayOneComponent

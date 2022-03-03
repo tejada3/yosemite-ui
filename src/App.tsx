@@ -9,9 +9,13 @@ import {Theme} from "@mui/material";
 import YoVal from "./static/yoVal.png"
 import Login from "./components/Login/Login";
 import Register from "./components/Register/Register";
+import { useSelector } from 'react-redux';
+import { errorState, hideErrorMessage } from './state-slices/error/error-slice';
+import ErrorMessageComponent from './components/utilComponents/ErrorMessageComponent';
 
 
 function App() {
+    const error = useSelector(errorState);
 
     const useStyles = makeStyles((theme:Theme) => ({
         div:{
@@ -38,12 +42,11 @@ function App() {
 
 
                      </Routes>
-
           </Router>
           </div>
-
-
+         <ErrorMessageComponent message={error.errorMessage}/>
       </>
+
   );
 }
 
