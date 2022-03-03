@@ -14,6 +14,9 @@ import {useNavigate} from "react-router-dom";
 import ErrorMessageComponent from '../utilComponents/ErrorMessageComponent';
 import { render } from 'react-dom';
 import { useState } from 'react';
+import {activitesReducer} from "../../state-slices/DaytoDay/Activites"
+import { useDispatch } from 'react-redux'
+
 
 const ActivitiesManagerComponent = () => {
     const [open, setOpen] = React.useState(false);
@@ -24,7 +27,9 @@ const ActivitiesManagerComponent = () => {
     const [day, setday] = React.useState('');
     const [message, setmessage] = React.useState('');
     const [value, setValue] = React.useState('Add Here');
-    let history = useNavigate()
+
+    let history = useNavigate();
+    const dispatch = useDispatch();
 
     
     const style = {
@@ -38,7 +43,6 @@ const ActivitiesManagerComponent = () => {
         boxShadow: 24,
         p: 4,
         textAlign: 'center'
-
     };
    
 
@@ -85,6 +89,7 @@ const ActivitiesManagerComponent = () => {
         console.log(message)
         console.log(day)
         addEventf()
+        dispatch(activitesReducer());
 
         setOpen(false)
         history('/')
