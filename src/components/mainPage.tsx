@@ -13,11 +13,10 @@ import {User} from "../models/user"
 import {useSelector} from "react-redux";
 
 
-
-
 const DailtInfo = () => {
 
     const user: User = useSelector(authState)
+    console.log(user);
 
     const useStyles = makeStyles((theme:Theme) => ({
 

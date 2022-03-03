@@ -3,6 +3,8 @@ import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import {makeStyles} from "@material-ui/core/styles";
 import {useEffect, useState} from "react";
 import axios from "axios";
+import {useSelector} from "react-redux";
+import {activitiesState} from "../../state-slices/DaytoDay/Activites"
 
 
 const DayOneComponent = () => {
@@ -14,9 +16,11 @@ const DayOneComponent = () => {
     const [d4, setD4] = useState<any[]>([])
     const [d5, setD5] = useState<any[]>([])
 
+    const updateActivities: any = useSelector(activitiesState)
+
     useEffect(() => {
         dayActivities()
-    }, [])
+    }, [updateActivities])
 
 
     async function dayActivities() {
@@ -28,8 +32,6 @@ const DayOneComponent = () => {
         setD3(response.data.payload.dayThree)
         setD4(response.data.payload.dayFour)
         setD5(response.data.payload.dayFive)
-
-
     }
 
 
