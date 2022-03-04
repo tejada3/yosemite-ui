@@ -8,6 +8,7 @@ import DeleteIcon from '@mui/icons-material/Delete'
 import CheckIcon from '@mui/icons-material/Check';
 import CloseIcon from '@mui/icons-material/Close';
 import axios from 'axios';
+import {activitesReducer} from "../../state-slices/DaytoDay/Activites"
 import {errorState, setInfoMessage, setSuccessMessage, showSnackbar } from '../../state-slices/error/error-slice';
 import { useDispatch, useSelector } from 'react-redux';
 
@@ -84,6 +85,7 @@ const DayActivityDisplay = ( props: Activities) => {
                 }});
             dispatch(setInfoMessage())
             dispatch(showSnackbar("Successfully Deleted Event"))
+            dispatch(activitesReducer());
             handleClose()
         }
     )

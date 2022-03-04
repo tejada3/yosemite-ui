@@ -13,9 +13,8 @@ const Register = () => {
     const useStyles = makeStyles((theme:Theme) => ({
         loginDiv:{
             textAlign:'center',
-            backgroundColor: 'honeydew',
+            backgroundColor: 'rgba(230, 255, 230, 0.80)',
             marginTop: 20,
-
         },
         button:{
             marginTop:40
@@ -74,6 +73,7 @@ const Register = () => {
                                     required
                                     id="outlined-required"
                                     label="Email"
+                                    variant="filled"
                                     onChange={(event)=>setEmail(event.target.value)}
                                 />
                             </div>
@@ -84,6 +84,8 @@ const Register = () => {
                                     id="filled-required"
                                     label="Password"
                                     variant="filled"
+                                    type="password"
+                                    autoComplete="current-password"
                                     onChange={(event)=>setPassword(event.target.value)}
                                 />
                             </div>
