@@ -91,7 +91,7 @@ const DayOneComponent = () => {
                             aria-controls="panel1a-content"
                             id="panel1a-header"
                         >
-                        <Typography>Day 1</Typography>
+                        <Typography fontSize={50} >Day 1</Typography>
                         </AccordionSummary>
                         <AccordionDetails className={classes.accBorder}>
 
@@ -103,7 +103,7 @@ const DayOneComponent = () => {
                                         <div className={classes.row}>
 
                                             <div className={classes.col1}>
-                                                {e.event}
+                                                <h4>{e.event}</h4>
                                             </div>
 
                                             <div className={classes.col2}>
@@ -137,7 +137,7 @@ const DayOneComponent = () => {
                         aria-controls="panel1a-content"
                         id="panel1a-header"
                     >
-                    <Typography>Day 2</Typography>
+                    <Typography fontSize={50} >Day 2</Typography>
                     </AccordionSummary>
                     <AccordionDetails className={classes.accBorder}>
 
@@ -149,13 +149,21 @@ const DayOneComponent = () => {
                                         <div className={classes.row}>
 
                                             <div className={classes.col1}>
-                                                {e.event}
+                                                <h4>{e.event}</h4>
                                             </div>
 
                                             <div className={classes.col2}>
-                                                <IconButton aria-label="delete" size="large">
-                                                    <DeleteIcon fontSize="inherit" color={'error'}/>
-                                                </IconButton>
+
+                                                {user.isAuth?
+
+                                                    <IconButton aria-label="delete" size="large">
+                                                        <DayActivityDisplay day={"dayTwo"} order={String(index + 1)} />
+                                                    </IconButton>
+                                                    :
+
+                                                    ''
+                                                }
+
                                             </div>
 
                                         </div>
@@ -175,7 +183,7 @@ const DayOneComponent = () => {
                         aria-controls="panel1a-content"
                         id="panel1a-header"
                     >
-                        <Typography>Day 3</Typography>
+                        <Typography fontSize={50} >Day 3</Typography>
                     </AccordionSummary>
                     <AccordionDetails className={classes.accBorder}>
 
@@ -187,13 +195,21 @@ const DayOneComponent = () => {
                                         <div className={classes.row}>
 
                                             <div className={classes.col1}>
-                                                {e.event}
+                                                <h4>{e.event}</h4>
                                             </div>
 
                                             <div className={classes.col2}>
-                                                <IconButton aria-label="delete" size="large">
-                                                    <DeleteIcon fontSize="inherit" color={'error'}/>
-                                                </IconButton>
+
+                                                {user.isAuth?
+
+                                                    <IconButton aria-label="delete" size="large">
+                                                        <DayActivityDisplay day={"dayThree"} order={String(index + 1)} />
+                                                    </IconButton>
+                                                    :
+
+                                                    ''
+                                                }
+
                                             </div>
 
                                         </div>
@@ -213,7 +229,7 @@ const DayOneComponent = () => {
                         aria-controls="panel1a-content"
                         id="panel1a-header"
                     >
-                        <Typography>Day 4</Typography>
+                        <Typography fontSize={50} >Day 4</Typography>
                     </AccordionSummary>
                     <AccordionDetails className={classes.accBorder}>
 
@@ -225,13 +241,21 @@ const DayOneComponent = () => {
                                         <div className={classes.row}>
 
                                             <div className={classes.col1}>
-                                                {e.event}
+                                                <h4>{e.event}</h4>
                                             </div>
 
                                             <div className={classes.col2}>
-                                                <IconButton aria-label="delete" size="large">
-                                                    <DeleteIcon fontSize="inherit" color={'error'}/>
-                                                </IconButton>
+
+                                                {user.isAuth?
+
+                                                    <IconButton aria-label="delete" size="large">
+                                                        <DayActivityDisplay day={"dayFour"} order={String(index + 1)} />
+                                                    </IconButton>
+                                                    :
+
+                                                    ''
+                                                }
+
                                             </div>
 
                                         </div>
@@ -251,7 +275,7 @@ const DayOneComponent = () => {
                         aria-controls="panel1a-content"
                         id="panel1a-header"
                     >
-                        <Typography>Day 5</Typography>
+                        <Typography fontSize={50} >Day 5</Typography>
                     </AccordionSummary>
                     <AccordionDetails className={classes.accBorder}>
 
@@ -264,13 +288,21 @@ const DayOneComponent = () => {
                                         <div className={classes.row}>
 
                                             <div className={classes.col1}>
-                                                {e.event}
+                                                <h4>{e.event}</h4>
                                             </div>
 
                                             <div className={classes.col2}>
-                                                <IconButton aria-label="delete" size="large">
-                                                    <DeleteIcon fontSize="inherit" color={'error'}/>
-                                                </IconButton>
+
+                                                {user.isAuth?
+
+                                                    <IconButton aria-label="delete" size="large">
+                                                        <DayActivityDisplay day={"dayFive"} order={String(index + 1)} />
+                                                    </IconButton>
+                                                    :
+
+                                                    ''
+                                                }
+
                                             </div>
 
                                         </div>
