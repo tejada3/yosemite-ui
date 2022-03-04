@@ -21,6 +21,7 @@ phases:
   build:
     commands:
       - yarn build
+      - yarn run start
 artifacts:
   files:
     - "**/*"
