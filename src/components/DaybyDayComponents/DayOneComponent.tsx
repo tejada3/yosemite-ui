@@ -8,8 +8,8 @@ import DayActivityDisplay from "./DayActivityDisplayComponent";
 import {authState} from "../../state-slices/auth/auth";
 import {User} from "../../models/user";
 import {useSelector} from "react-redux";
-import {activitiesState} from "../../state-slices/DaytoDay/Activites"
 
+import {activitiesState} from "../../state-slices/DaytoDay/Activites"
 
 const DayOneComponent = () => {
     const user: User = useSelector(authState);
@@ -44,54 +44,55 @@ const DayOneComponent = () => {
         dayOneDiv:{
             marginTop: 10,
             marginBottom: 10,
-            marginRight:300,
-            marginLeft:300
         },
         accBorder:{
             border: "solid",
-            borderStyle: "outset"
+            borderStyle: "outset",
         },
         infoDiv:{
-          borderStyle:"outset"
+          borderStyle:"outset",
+          textAlign: 'left',
         },
-        row: {
+
+        row:{
             display: 'inline-flex',
             alignItems: 'space-between',
         },
-        col2: {
+        col2:{
             textAlign: 'left',
             width: 'max-content'
         },
-        col1: {
+        col1:{
             marginTop: 5,
             marginLeft: 50,
             width: 900
         }
-
     }));
 
     const classes = useStyles();
 
-    const deleteEvent = (day: string, order: string) => (
+    const deleteEvent = (day: string, order: string) =>(
         '<DayActivityDisplay day={day} order={order} />'
 
     )
 
     return(
         <>
-            <div className={classes.dayOneDiv}>
-                <Accordion>
-                    <AccordionSummary
-                        expandIcon={<ExpandMoreIcon/>}
-                        aria-controls="panel1a-content"
-                        id="panel1a-header"
-                    >
-                        <Typography>Day 1</Typography>
-                    </AccordionSummary>
-                    <AccordionDetails className={classes.accBorder}>
 
-                        <div className={classes.infoDiv}>
-                            {d1.map(((e, index, ev) => (
+
+                <div className={classes.dayOneDiv}>
+                    <Accordion>
+                        <AccordionSummary
+                            expandIcon={<ExpandMoreIcon />}
+                            aria-controls="panel1a-content"
+                            id="panel1a-header"
+                        >
+                        <Typography>Day 1</Typography>
+                        </AccordionSummary>
+                        <AccordionDetails className={classes.accBorder}>
+
+                            <div className={classes.infoDiv}>
+                            {d1.map(((e, index, ev)=>(
                                 <>
                                     <hr/>
                                     <div>
@@ -103,15 +104,14 @@ const DayOneComponent = () => {
 
                                             <div className={classes.col2}>
 
-                                                {user.isAuth ?
+                                                {user.isAuth?
+
+                                                    <IconButton aria-label="delete" size="large">
+                                                        <DayActivityDisplay day={"dayOne"} order={String(index + 1)} />
+                                                    </IconButton>
+                                                    :
 
                                                     ''
-                                                    :
-                                                    <IconButton aria-label="delete" size="large">
-                                                        <DayActivityDisplay day={"dayOne"}
-                                                                            order={String(index + 1)}/>
-                                                    </IconButton>
-
                                                 }
 
                                             </div>
@@ -120,25 +120,25 @@ const DayOneComponent = () => {
                                     </div>
                                 </>
                             )))}
-                        </div>
+                            </div>
 
-                    </AccordionDetails>
-                </Accordion>
+                        </AccordionDetails>
+                    </Accordion>
 
-            </div>
+                </div>
             <div className={classes.dayOneDiv}>
                 <Accordion>
                     <AccordionSummary
-                        expandIcon={<ExpandMoreIcon/>}
+                        expandIcon={<ExpandMoreIcon />}
                         aria-controls="panel1a-content"
                         id="panel1a-header"
                     >
-                        <Typography>Day 2</Typography>
+                    <Typography>Day 2</Typography>
                     </AccordionSummary>
                     <AccordionDetails className={classes.accBorder}>
 
                         <div className={classes.infoDiv}>
-                            {d2.map(((e, index, ev) => (
+                            {d2.map(((e, index, ev)=>(
                                 <>
                                     <hr/>
                                     <div>
@@ -167,7 +167,7 @@ const DayOneComponent = () => {
             <div className={classes.dayOneDiv}>
                 <Accordion>
                     <AccordionSummary
-                        expandIcon={<ExpandMoreIcon/>}
+                        expandIcon={<ExpandMoreIcon />}
                         aria-controls="panel1a-content"
                         id="panel1a-header"
                     >
@@ -176,7 +176,7 @@ const DayOneComponent = () => {
                     <AccordionDetails className={classes.accBorder}>
 
                         <div className={classes.infoDiv}>
-                            {d3.map(((e, index, ev) => (
+                            {d3.map(((e, index, ev)=>(
                                 <>
                                     <hr/>
                                     <div>
@@ -205,7 +205,7 @@ const DayOneComponent = () => {
             <div className={classes.dayOneDiv}>
                 <Accordion>
                     <AccordionSummary
-                        expandIcon={<ExpandMoreIcon/>}
+                        expandIcon={<ExpandMoreIcon />}
                         aria-controls="panel1a-content"
                         id="panel1a-header"
                     >
@@ -214,7 +214,7 @@ const DayOneComponent = () => {
                     <AccordionDetails className={classes.accBorder}>
 
                         <div className={classes.infoDiv}>
-                            {d4.map(((e, index, ev) => (
+                            {d4.map(((e, index, ev)=>(
                                 <>
                                     <hr/>
                                     <div>
@@ -243,7 +243,7 @@ const DayOneComponent = () => {
             <div className={classes.dayOneDiv}>
                 <Accordion>
                     <AccordionSummary
-                        expandIcon={<ExpandMoreIcon/>}
+                        expandIcon={<ExpandMoreIcon />}
                         aria-controls="panel1a-content"
                         id="panel1a-header"
                     >
@@ -253,7 +253,7 @@ const DayOneComponent = () => {
 
 
                         <div className={classes.infoDiv}>
-                            {d5.map(((e, index, ev) => (
+                            {d5.map(((e, index, ev)=>(
                                 <>
                                     <hr/>
                                     <div>

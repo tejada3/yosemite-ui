@@ -15,7 +15,8 @@ import ErrorMessageComponent from '../utilComponents/ErrorMessageComponent';
 import { render } from 'react-dom';
 import { useState } from 'react';
 import {activitesReducer} from "../../state-slices/DaytoDay/Activites"
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
+import { errorState, setFailureMessage, setSuccessMessage, showSnackbar } from '../../state-slices/error/error-slice';
 
 
 const ActivitiesManagerComponent = () => {
@@ -27,9 +28,10 @@ const ActivitiesManagerComponent = () => {
     const [day, setday] = React.useState('');
     const [message, setmessage] = React.useState('');
     const [value, setValue] = React.useState('Add Here');
-
-    let history = useNavigate();
     const dispatch = useDispatch();
+    const error = useSelector(errorState);
+    let history = useNavigate();
+
 
     
     const style = {
@@ -67,20 +69,17 @@ const ActivitiesManagerComponent = () => {
     };
 
     async function addEventf() {
-
         try{
             const response = await axios.put('https://l3yu0l18ib.execute-api.us-east-1.amazonaws.com/Yosemite/event',{"message": message,
                     "day": day});
 
             console.log(response.data)
-            setErrorMessage("added event successfullyy")
-
-
-
+            dispatch(setSuccessMessage())
+            dispatch(showSnackbar("Added Event Successsfully"))
+            console.log("inside this shit")
         }catch (e: any){
             console.log(e.message)
         }
-
     }
 
     const addEvent = () =>{
@@ -88,16 +87,13 @@ const ActivitiesManagerComponent = () => {
         console.log(day)
         addEventf()
         dispatch(activitesReducer());
-
         setOpen(false)
         history('/')
-
     }
 
 
     return(
         <>
-
             <div className={classes.button}>
                 <Button onClick={handleOpen}>Manage Activities </Button>
                 <Modal
@@ -159,19 +155,10 @@ const ActivitiesManagerComponent = () => {
                             <Button variant="contained" color="success" onClick={addEvent}>
                                 Add Event
                             </Button>
-
-
                         </Box>
-
-
                     </Box>
                 </Modal>
             </div>
-
-            { errorMessage ? <ErrorMessageComponent message={errorMessage}/> : <></> }
-
-
-
 
         </>
     )

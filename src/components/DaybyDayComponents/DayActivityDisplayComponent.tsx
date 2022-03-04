@@ -8,6 +8,8 @@ import DeleteIcon from '@mui/icons-material/Delete'
 import CheckIcon from '@mui/icons-material/Check';
 import CloseIcon from '@mui/icons-material/Close';
 import axios from 'axios';
+import {errorState, setInfoMessage, setSuccessMessage, showSnackbar } from '../../state-slices/error/error-slice';
+import { useDispatch, useSelector } from 'react-redux';
 
 
 
@@ -22,7 +24,8 @@ const DayActivityDisplay = ( props: Activities) => {
     const handleOpen = () => setOpen(true);
     const handleClose = () => setOpen(false);
 
-
+    const dispatch = useDispatch();
+    const error = useSelector(errorState);
 
     const StyledModal = styled(ModalUnstyled)`
       position: fixed;
@@ -79,6 +82,8 @@ const DayActivityDisplay = ( props: Activities) => {
                     "day": day,
                     "order": order
                 }});
+            dispatch(setInfoMessage())
+            dispatch(showSnackbar("Successfully Deleted Event"))
             handleClose()
         }
     )

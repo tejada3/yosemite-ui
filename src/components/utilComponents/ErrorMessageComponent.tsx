@@ -4,6 +4,8 @@ import Button from '@mui/material/Button';
 import Snackbar from '@mui/material/Snackbar';
 import MuiAlert, { AlertProps } from '@mui/material/Alert';
 import { useEffect } from 'react';
+import {useDispatch, useSelector } from 'react-redux';
+import { errorState, hideErrorMessage } from '../../state-slices/error/error-slice';
 
 
 interface ErrorMessage{
@@ -14,12 +16,9 @@ interface ErrorMessage{
 
 const ErrorMessageComponent = (props: ErrorMessage) =>{
     const [open, setOpen] = React.useState(false);
+    const error = useSelector(errorState);
+    const dispatch = useDispatch();
 
-
-    useEffect(() => {
-        console.log("inside errrrrror message")
-        handleClick()
-    },)
 
     const Alert = React.forwardRef<HTMLDivElement, AlertProps>(function Alert(
         props,
@@ -50,15 +49,15 @@ const ErrorMessageComponent = (props: ErrorMessage) =>{
 
             <Stack spacing={2} sx={{ width: '100%' }}>
 
-                <Snackbar open={open} autoHideDuration={6000} onClose={handleClose}>
-                    <Alert onClose={handleClose} severity={"success"} sx={{ width: '100%' }}>
+                <Snackbar open={error.errorType} autoHideDuration={3000} onClose={()=>{dispatch(hideErrorMessage())}}>
+                    <Alert onClose={()=>{dispatch(hideErrorMessage())}} severity={error.errorColor} sx={{ width: '100%' }}>
                         {props.message}
                     </Alert>
                 </Snackbar>
 
 
             </Stack>
-            );
+
         </>
     )
 }
