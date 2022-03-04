@@ -18,11 +18,7 @@ function App() {
     const error = useSelector(errorState);
 
     const useStyles = makeStyles((theme:Theme) => ({
-        div:{
-            backgroundColor: "honeydew",
-            backgroundImage: `url(${YoVal})`,
-            backgroundRepeat: 'round',
-        }
+
 
     }));
     const classes = useStyles();
@@ -30,7 +26,7 @@ function App() {
 
     return (
       <>
-          <div className={classes.div}>
+
           <Router >
               <PrimarySearchAppBar />
 
@@ -43,7 +39,6 @@ function App() {
 
                      </Routes>
           </Router>
-          </div>
          <ErrorMessageComponent message={error.errorMessage}/>
       </>
 

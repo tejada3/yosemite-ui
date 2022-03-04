@@ -41,7 +41,7 @@ const DailtInfo = () => {
         row:{
             display: "flex",
             borderColor: "black",
-            width:"fit-content"
+
         },
 
         colSupples:{
@@ -67,7 +67,7 @@ const DailtInfo = () => {
     return(
         <div>
 
-                <TemperatureComponent/>
+            <TemperatureComponent/>
 
             <Container  className={classes.SuppliesContainer}>
 
