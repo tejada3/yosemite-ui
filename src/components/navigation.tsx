@@ -47,7 +47,6 @@ function PrimarySearchAppBar() {
     }
     const logout = () =>{
         dispatch(logoutUserReducer())
-
         history('/')
     }
 
@@ -96,7 +95,7 @@ function PrimarySearchAppBar() {
                         <MailIcon />
                     </Badge>
                 </IconButton>
-                <p>Messages</p>
+                <p>Gallery</p>
             </MenuItem>
             <MenuItem>
                 <IconButton
@@ -129,15 +128,16 @@ function PrimarySearchAppBar() {
         <Box sx={{ flexGrow: 1 }}>
             <AppBar position="static">
                 <Toolbar>
-
-                    <Typography
-                        variant="h6"
-                        noWrap
-                        component="div"
-                        sx={{ display: { xs: 'none', sm: 'block' } }}
-                    >
-                        Yosemite 2022
-                    </Typography>
+                    <div onClick={()=>history('/')}>
+                        <Typography
+                            variant="h6"
+                            noWrap
+                            component="div"
+                            sx={{ display: { xs: 'none', sm: 'block' } }}
+                        >
+                            Yosemite 2022
+                        </Typography>
+                    </div>
 
                     <Box sx={{ flexGrow: 1 }} />
                     <Box sx={{ display: { xs: 'none', md: 'flex' } }}>

@@ -4,6 +4,7 @@ import { BrowserRouter as Router, Routes,  Route} from 'react-router-dom';
 import PrimarySearchAppBar from "./components/navigation";
 import './App.css';
 import DailtInfo from "./components/mainPage";
+import Gallery from "./components/Gallery/Gallery";
 import {makeStyles} from "@material-ui/core/styles";
 import {Theme} from "@mui/material";
 import YoVal from "./static/yoVal.png"
@@ -29,14 +30,11 @@ function App() {
 
           <Router >
               <PrimarySearchAppBar />
-
                      <Routes>
-
                         <Route path='/' element={<DailtInfo/>}/>
                         <Route path='/login' element={<Login/>}/>
                         <Route path='/register' element={<Register/>}/>
-
-
+                        <Route path='/gallery' element={<Gallery/>}/>
                      </Routes>
           </Router>
          <ErrorMessageComponent message={error.errorMessage}/>
