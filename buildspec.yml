@@ -2,11 +2,8 @@ version: 0.2
 
 phases:
   install:
-    commands:
-#      installing node.js
-      - echo Installing Node.js..
-      - curl -fsSL https://deb.nodesource.com/setup_16.x |  bash -
-      - apt-get install -y nodejs
+    runtime-versions:
+      nodejs: 10
 
 
 
