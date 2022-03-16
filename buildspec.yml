@@ -7,12 +7,14 @@ phases:
       - echo Installing Node.js..
       - curl -fsSL https://deb.nodesource.com/setup_16.x |  bash -
       - apt-get install -y nodejs
+#      installing npm
+      - sudo apt install npm
 
 
   pre_build:
     commands:
       - echo Installing dependencies
-      - npm install
+      - npm
 
   build:
     commands:
