@@ -45,7 +45,6 @@ const Login = () => {
 
         user.authenticateUser(authDetails, {
             onSuccess: (data) => {
-
                 dispatch(loginUserReducer(data));
                 console.log("onSuccess: ", data);
                 dispatch(setSuccessMessage())

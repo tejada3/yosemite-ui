@@ -8,6 +8,7 @@ import Badge from '@mui/material/Badge';
 import MenuItem from '@mui/material/MenuItem';
 import Menu from '@mui/material/Menu';
 import AccountCircle from '@mui/icons-material/AccountCircle';
+import PhotoCameraBackIcon from '@mui/icons-material/PhotoCameraBack';
 import MailIcon from '@mui/icons-material/Mail';
 import NotificationsIcon from '@mui/icons-material/Notifications';
 import LogoutIcon from '@mui/icons-material/Logout';
@@ -48,6 +49,9 @@ function PrimarySearchAppBar() {
     const logout = () =>{
         dispatch(logoutUserReducer())
         history('/')
+    }
+    const goToGallery = () => {
+        history('/gallery')
     }
 
     const menuId = 'primary-search-account-menu';
@@ -139,7 +143,22 @@ function PrimarySearchAppBar() {
                         </Typography>
                     </div>
 
-                    <Box sx={{ flexGrow: 1 }} />
+                    <Box sx={{ display: { xs: 'none', md: 'flex' } }}>
+                        {user.isAuth?
+
+                            <IconButton size="large" aria-label="show 4 new mails" color="inherit">
+                                <Badge badgeContent={5} color="error">
+                                    <PhotoCameraBackIcon onClick={goToGallery}/>
+                                </Badge>
+                            </IconButton>
+
+                            :
+
+                            ''
+                        }
+
+
+                    </Box>
                     <Box sx={{ display: { xs: 'none', md: 'flex' } }}>
                         {user.isAuth?
 
