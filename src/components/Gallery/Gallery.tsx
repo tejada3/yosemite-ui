@@ -1,4 +1,3 @@
-import s3Obj from "../../remote/S3_PhotoObj"
 import React, { useEffect, useState } from 'react'
 import { makeStyles } from "@material-ui/core/styles";
 import { Theme } from "@mui/material";
@@ -32,13 +31,12 @@ const Gallery = () => {
     }));
     const classes = useStyles();
 
-    const ob = new s3Obj();
-
     const onFileInput = (event: any) => {
         if (event.target.files && event.target.files[0]) {
             let reader = new FileReader();
+
             console.log(event.target.files[0]);
-            ob.uploadImage(reader.readAsBinaryString(event.target.files[0]));
+            //Upload here
         }
     }
 
