@@ -16,14 +16,14 @@ phases:
   pre_build:
     commands:
       - echo Installing dependencies
-      - yarn
+      - npm intall
 
   build:
     commands:
-      - yarn build
+      - npm run build
 artifacts:
   files:
     - "**/*"
   discard-paths: no
-  base-directory: src
+  base-directory: build
 
