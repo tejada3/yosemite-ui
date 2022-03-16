@@ -90,38 +90,7 @@ function PrimarySearchAppBar() {
             open={isMobileMenuOpen}
             onClose={handleMobileMenuClose}
         >
-            <MenuItem>
-                <IconButton size="large" aria-label="show 4 new mails" color="inherit">
-                    <Badge badgeContent={4} color="error">
-                        <MailIcon />
-                    </Badge>
-                </IconButton>
-                <p>Messages</p>
-            </MenuItem>
-            <MenuItem>
-                <IconButton
-                    size="large"
-                    aria-label="show 17 new notifications"
-                    color="inherit"
-                >
-                    <Badge badgeContent={17} color="error">
-                        <NotificationsIcon />
-                    </Badge>
-                </IconButton>
-                <p>Notifications</p>
-            </MenuItem>
-            <MenuItem onClick={handleProfileMenuOpen}>
-                <IconButton
-                    size="large"
-                    aria-label="account of current user"
-                    aria-controls="primary-search-account-menu"
-                    aria-haspopup="true"
-                    color="inherit"
-                >
-                    <AccountCircle />
-                </IconButton>
-                <p>Profile</p>
-            </MenuItem>
+
         </Menu>
     );
 
@@ -134,18 +103,18 @@ function PrimarySearchAppBar() {
                         variant="h6"
                         noWrap
                         component="div"
-                        sx={{ display: { xs: 'none', sm: 'block' } }}
+                        sx={{ display: { xs: 'none', sm: 'block', fontSize: 60 } }}
                     >
                         Yosemite 2022
                     </Typography>
 
                     <Box sx={{ flexGrow: 1 }} />
-                    <Box sx={{ display: { xs: 'none', md: 'flex' } }}>
+                    <Box sx={{ display: { xs: 'none', md: 'flex' } }} >
                         {user.isAuth?
 
                             <IconButton size="large" aria-label="show 4 new mails" color="inherit">
                                 <Badge badgeContent={0} color="error">
-                                    <LogoutIcon onClick={logout}/>
+                                    <LogoutIcon onClick={logout} sx={{ fontSize: 60 }}/>
                                 </Badge>
                             </IconButton>
 
@@ -153,7 +122,7 @@ function PrimarySearchAppBar() {
 
                             <IconButton size="large" aria-label="show 4 new mails" color="inherit">
                                 <Badge badgeContent={0} color="error">
-                                    <AccountCircle onClick={goToLogin}/>
+                                    <AccountCircle onClick={goToLogin} sx={{ fontSize: 60 }}/>
                                 </Badge>
                             </IconButton>
 
