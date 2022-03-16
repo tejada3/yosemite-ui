@@ -105,7 +105,7 @@ function PrimarySearchAppBar() {
                         component="div"
                         sx={{ display: { xs: 'none', sm: 'block', fontSize: 60 } }}
                     >
-                        Yosemite 2022 Fuckkking  ayyyyyyy
+                        Yosemite 2022 Fuckkking
                     </Typography>
 
                     <Box sx={{ flexGrow: 1 }} />
