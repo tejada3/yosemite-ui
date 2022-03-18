@@ -20,12 +20,12 @@ interface ExpandMoreProps extends IconButtonProps {
   expand: boolean;
 }
 interface ImageProps {
-  source: String;
+  source: string;
 }
 
 export default function RecipeReviewCard(imageProps: ImageProps) {
 
-  const [passedImage, setPassedImage] = React.useState(undefined);
+  const [passedImage, setPassedImage] = React.useState<string>("undefined");
 
   function getColorCode() {
     var makeColorCode = '0123456789ABCDEF';
@@ -44,10 +44,7 @@ export default function RecipeReviewCard(imageProps: ImageProps) {
 
   const classes = useStyles();
 
-  React.useEffect(() => {
-    //@ts-ignore
-    setPassedImage(imageProps.source);
-  })                                                                                                                                                                                                                                                        
+  React.useEffect(() => setPassedImage(imageProps.source), [])                                                                                                                                                                                                                                                        
 
   return (
     <div className={classes.cardHolder}>
