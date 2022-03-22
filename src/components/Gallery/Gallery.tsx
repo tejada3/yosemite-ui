@@ -36,6 +36,7 @@ const Gallery = () => {
     const onFileInput = async (event: any) => {
 
         const presignedPostResponse = await axios.get(`https://l3yu0l18ib.execute-api.us-east-1.amazonaws.com/Yosemite/s3?method=post&image_name=${event.target.files[0].name}`);
+        console.log("getting called")
        
         console.log(presignedPostResponse);
         if (event.target.files && event.target.files[0]) {
