@@ -44,13 +44,13 @@ export default function RecipeReviewCard(imageProps: ImageProps) {
 
   const classes = useStyles();
 
-  React.useEffect(() => setPassedImage(imageProps.source), [])                                                                                                                                                                                                                                                        
+  React.useEffect(() => setPassedImage(imageProps.source), [imageProps.source])                                                                                                                                                                                                                                                        
 
   return (
     <div className={classes.cardHolder}>
       <Card sx={{ minWidth: 700,
                   minHeight:700, 
-                  maxHeight:800,
+                  maxHeight:1000,
                   maxWidth: 1000,
                   p:2,
                   borderRadius: 3}}>
