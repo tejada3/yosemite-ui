@@ -50,7 +50,7 @@ export default function RecipeReviewCard(imageProps: ImageProps) {
     <div className={classes.cardHolder}>
       <Card sx={{ minWidth: 700,
                   minHeight:700, 
-                  maxHeight:1000,
+                  maxHeight:1500,
                   maxWidth: 1000,
                   p:2,
                   borderRadius: 3}}>

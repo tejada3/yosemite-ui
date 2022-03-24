@@ -12,12 +12,19 @@ import { authState } from '../../state-slices/auth/auth';
 const Gallery = () => {
     const [uploadImage, setUploadImage] = useState(0);
     const [imageList, setImageList] = useState([]);
+    const [email, setEmail] = useState<string | undefined>(undefined);
 
     const user: User = useSelector(authState)
 
     useEffect(() => {
         preSignedUrl();
     }, [uploadImage]);
+
+    useEffect(() => {
+        const user = localStorage.getItem('email');
+        if(user && email!=user)
+          setEmail(user);
+    }, []);
 
     const useStyles = makeStyles((theme:Theme) => ({
         btnContainer:{
@@ -79,7 +86,7 @@ const Gallery = () => {
 
     return <>
         <div className={classes.mainContainer}>
-            {user.isAuth ? 
+            {email ? 
             <div className={classes.btnContainer}>
                 <Button style={{
                     backgroundColor: "rgba(220, 255, 220, 0.85)",
@@ -103,7 +110,7 @@ const Gallery = () => {
             }
 
             <div className={classes.cards}>
-                <List imgArr={imageList}/>
+                <List imgArr={imageList} index={3}/>
             </div>
         </div>
         </>

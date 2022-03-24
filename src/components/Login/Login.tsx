@@ -49,6 +49,7 @@ const Login = () => {
                 console.log("onSuccess: ", data);
                 dispatch(setSuccessMessage())
                 dispatch(showSnackbar("Welcome"))
+                localStorage.setItem("email",email);
                 history('/');
 
             },
