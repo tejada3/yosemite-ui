@@ -115,16 +115,11 @@ function PrimarySearchAppBar() {
                     <Box sx={{ flexGrow: 1 }} />
 
                     <Box sx={{ display: { xs: 'none', md: 'flex' } }}>
-                        {user.isAuth?
-
                             <IconButton size="large" aria-label="show 4 new mails" color="inherit">
                                 <Badge badgeContent={5} color="error">
                                     <PhotoCameraBackIcon onClick={goToGallery} sx={{ fontSize: 60 }}/>
                                 </Badge>
                             </IconButton>
-                        :
-                        ''
-                    }
                     </Box>
                     <Box sx={{ display: { xs: 'none', md: 'flex' } }} >
                         {user.isAuth?

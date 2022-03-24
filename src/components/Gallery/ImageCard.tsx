@@ -14,7 +14,9 @@ import FavoriteIcon from '@mui/icons-material/Favorite';
 import ShareIcon from '@mui/icons-material/Share';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import MoreVertIcon from '@mui/icons-material/MoreVert';
+import DownloadIcon from '@mui/icons-material/Download';
 import { makeStyles } from '@material-ui/core/styles';
+import { Button } from '@mui/material';
 
 interface ExpandMoreProps extends IconButtonProps {
   expand: boolean;
@@ -24,8 +26,14 @@ interface ImageProps {
 }
 
 export default function RecipeReviewCard(imageProps: ImageProps) {
+  const [imageURL, setImageURL] = React.useState<string>("undefined");
+  const [imageRatio, setImageRatio] = React.useState<number>(1);
+  const [imageHeight, setImageHeight] = React.useState<number>(600);
+  const [imageWidth, setImageWidth] = React.useState<number>(700);
+  const [imageName, setImageName] = React.useState<string>("undefined");
 
-  const [passedImage, setPassedImage] = React.useState<string>("undefined");
+  const MIN_WIDTH = 1000;
+  const MIN_HEIGHT = 700;
 
   function getColorCode() {
     var makeColorCode = '0123456789ABCDEF';
@@ -44,14 +52,46 @@ export default function RecipeReviewCard(imageProps: ImageProps) {
 
   const classes = useStyles();
 
-  React.useEffect(() => setPassedImage(imageProps.source), [imageProps.source])                                                                                                                                                                                                                                                        
+  React.useEffect(() =>{
+    setImageURL(imageProps.source)
+
+    var img = new Image();
+    img.src = imageProps.source
+    setImageHeight(img.height);
+    setImageWidth(img.width);
+    setImageRatio(MIN_WIDTH/img.width)
+
+    const unencoded = decodeURI(imageProps.source.substring(38,imageProps.source.indexOf(".jpg")));
+    setImageName(unencoded);
+    }, [imageProps.source]);
+
+  const download = () => {
+    console.log(imageURL);
+    fetch(imageURL, {
+      method: "GET",
+      headers: {}
+    })
+      .then(response => {
+        response.arrayBuffer().then(function(buffer) {
+          const url = window.URL.createObjectURL(new Blob([buffer]));
+          const link = document.createElement("a");
+          link.href = url;
+          link.setAttribute("download", imageName+".jpg"); //or any other extension
+          document.body.appendChild(link);
+          link.click();
+        });
+      })
+      .catch(err => {
+        console.log(err);
+      });
+    };                                                                                                                                                                                                                                              
 
   return (
     <div className={classes.cardHolder}>
-      <Card sx={{ minWidth: 700,
-                  minHeight:700, 
+      <Card sx={{ minWidth: MIN_WIDTH,
+                  minHeight: MIN_HEIGHT, 
                   maxHeight:1500,
-                  maxWidth: 1000,
+                  maxWidth: 800,
                   p:2,
                   borderRadius: 3}}>
         <CardHeader
@@ -65,13 +105,13 @@ export default function RecipeReviewCard(imageProps: ImageProps) {
               <MoreVertIcon />
             </IconButton>
           }
-          title="Title of image"
+          title={imageName}
           subheader="user who posted"
         />
         <CardMedia
           component="img"
-          height="600"
-          image={passedImage}
+          height={imageHeight*imageRatio}
+          image={imageURL}
           alt="yosemite 2022"
         />
         <CardContent>
@@ -85,6 +125,9 @@ export default function RecipeReviewCard(imageProps: ImageProps) {
           </IconButton>
           <IconButton aria-label="share">
             <ShareIcon />
+          </IconButton>
+          <IconButton aria-label="download">
+            <DownloadIcon onClick={download}/>
           </IconButton>
         </CardActions>
       </Card>

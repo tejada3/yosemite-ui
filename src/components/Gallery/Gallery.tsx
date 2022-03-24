@@ -5,8 +5,9 @@ import axios from "axios";
 import List from "./List";
 import background from "../../static/RbackV2.jpg"
 import { User } from '../../models/user';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { authState } from '../../state-slices/auth/auth';
+import { setFailureMessage, setSuccessMessage, showSnackbar } from '../../state-slices/error/error-slice';
 
 
 const Gallery = () => {
@@ -44,12 +45,19 @@ const Gallery = () => {
     }));
     
     const classes = useStyles();
+    const dispatch = useDispatch();
 
     const onFileInput = async (event: any) => {
 
         const presignedPostResponse = await axios.get(`https://l3yu0l18ib.execute-api.us-east-1.amazonaws.com/Yosemite/s3?method=post&image_name=${event.target.files[0].name}`);
     
         console.log(presignedPostResponse);
+        if(presignedPostResponse.data.payload.length == 0){
+            dispatch(setFailureMessage())
+            dispatch(showSnackbar("Image with same name has already been uploaded"))
+            return;
+        }
+
         if (event.target.files && event.target.files[0]) {
             let payload = presignedPostResponse.data.payload.url
             const formData = new FormData();
@@ -57,6 +65,8 @@ const Gallery = () => {
             Object.keys(presignedPostResponse.data.payload.fields).forEach(key => {
                 formData.append(key, presignedPostResponse.data.payload.fields[key]);
             });
+
+            console.log(event.target.files[0]);
 
             formData.append("file", event.target.files[0]);
 
@@ -69,9 +79,13 @@ const Gallery = () => {
             ).then(
                 res =>{
                     console.log(res);
+                    dispatch(setSuccessMessage())
+                    dispatch(showSnackbar("Image successfully uploaded!"))
                     setUploadImage(uploadImage+1);
             }).catch((error) => {
                 console.log(error);
+                dispatch(setFailureMessage())
+                dispatch(showSnackbar(error))
                 throw error;
             });
 
@@ -110,7 +124,7 @@ const Gallery = () => {
             }
 
             <div className={classes.cards}>
-                <List imgArr={imageList} index={3}/>
+                <List imgArr={imageList}/>
             </div>
         </div>
         </>
