@@ -49,7 +49,9 @@ const Gallery = () => {
 
     const onFileInput = async (event: any) => {
 
-        const presignedPostResponse = await axios.get(`https://l3yu0l18ib.execute-api.us-east-1.amazonaws.com/Yosemite/s3?method=post&image_name=${event.target.files[0].name}`);
+        const date = new Date().toString();
+        console.log(date)
+        const presignedPostResponse = await axios.get(`https://l3yu0l18ib.execute-api.us-east-1.amazonaws.com/Yosemite/s3?method=post&image_name=${email+":"+date.substring(0,date.indexOf(" GMT"))+":"+event.target.files[0].name}`);
     
         console.log(presignedPostResponse);
         if(presignedPostResponse.data.payload.length == 0){

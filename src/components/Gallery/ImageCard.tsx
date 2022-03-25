@@ -26,10 +26,11 @@ interface ImageProps {
 }
 
 export default function RecipeReviewCard(imageProps: ImageProps) {
-  const [imageURL, setImageURL] = React.useState<string>("undefined");
   const [imageRatio, setImageRatio] = React.useState<number>(1);
   const [imageHeight, setImageHeight] = React.useState<number>(600);
-  const [imageWidth, setImageWidth] = React.useState<number>(700);
+  const [imageURL, setImageURL] = React.useState<string>("undefined");
+  const [uploadTime, setUploadTime] = React.useState<string>("undefined");
+  const [uploadUser, setUploadUser] = React.useState<string>("undefined")
   const [imageName, setImageName] = React.useState<string>("undefined");
 
   const MIN_WIDTH = 1000;
@@ -58,11 +59,21 @@ export default function RecipeReviewCard(imageProps: ImageProps) {
     var img = new Image();
     img.src = imageProps.source
     setImageHeight(img.height);
-    setImageWidth(img.width);
-    setImageRatio(MIN_WIDTH/img.width)
+    setImageRatio(MIN_WIDTH/img.width);
 
-    const unencoded = decodeURI(imageProps.source.substring(38,imageProps.source.indexOf(".jpg")));
-    setImageName(unencoded);
+    console.log(imageProps.source);
+    const meta = imageProps.source.substring(38,imageProps.source.indexOf(".jpg"));
+    console.log(meta)
+    let decodeMeta = decodeURI(meta)
+                      .replaceAll("%3A",":")
+                      .replaceAll("%40","@")
+
+    const initDelim = decodeMeta.indexOf(":");
+    const lastDelim = decodeMeta.lastIndexOf(":");
+    setUploadUser(decodeMeta.substring(0,initDelim))
+
+    setUploadTime(decodeMeta.substring(initDelim+1,lastDelim));
+    setImageName(decodeMeta.substring(lastDelim+1,decodeMeta.length));
     }, [imageProps.source]);
 
   const download = () => {
@@ -90,14 +101,14 @@ export default function RecipeReviewCard(imageProps: ImageProps) {
     <div className={classes.cardHolder}>
       <Card sx={{ minWidth: MIN_WIDTH,
                   minHeight: MIN_HEIGHT, 
-                  maxHeight:1500,
+                  maxHeight:2200,
                   maxWidth: 800,
                   p:2,
                   borderRadius: 3}}>
         <CardHeader
           avatar={
             <Avatar sx={{ bgcolor: getColorCode() }} aria-label="user">
-              R
+              {uploadUser.substring(0,1)}
             </Avatar>
           }
           action={
@@ -106,7 +117,7 @@ export default function RecipeReviewCard(imageProps: ImageProps) {
             </IconButton>
           }
           title={imageName}
-          subheader="user who posted"
+          subheader={uploadUser}
         />
         <CardMedia
           component="img"
@@ -116,16 +127,16 @@ export default function RecipeReviewCard(imageProps: ImageProps) {
         />
         <CardContent>
           <Typography variant="body2" color="text.secondary">
-            Time stamp here...
+            {"Posted on "+uploadTime}
           </Typography>
         </CardContent>
         <CardActions disableSpacing>
-          <IconButton aria-label="add to favorites">
+          {/* <IconButton aria-label="add to favorites">
             <FavoriteIcon />
           </IconButton>
           <IconButton aria-label="share">
             <ShareIcon />
-          </IconButton>
+          </IconButton> */}
           <IconButton aria-label="download">
             <DownloadIcon onClick={download}/>
           </IconButton>
