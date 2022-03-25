@@ -1,23 +1,36 @@
 import React, { useEffect, useState } from 'react';
 import ImageCard from './ImageCard';
 
-interface ImageList {
+interface ImageListProps {
   imgArr: String[]
 }
 
-const List = (imageList: ImageList) => {
+const List = (imageList: ImageListProps) => {
+  //fetching amount is how many cards are added when fetching more cards
   let fetchingAmt = 3;
+  //index is the number of cards on the screen
   const [index, setIndex] = useState(fetchingAmt);
   const [renderedItems, setRenderedItems] = useState<JSX.Element[] | undefined>(undefined);
   const [isFetching, setIsFetching] = useState(false);
 
+  //Listener handles scrolling and loading more elements into list
   useEffect(() => {
+    if(index>3){
+      console.log("index is greater than 3 on initial load, resetting")
+      setIndex(3);
+    }
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  useEffect(() => {
+    //Update to the list 
     console.log("USEEFFECT LIST CALL\n\nlist:  ",imageList);
     let tempArr: JSX.Element[] = [];
 
     for(let i=0; i<imageList.imgArr.length; i++){
 
-      if(i==fetchingAmt)
+      if(i==index)
         break;
       
       tempArr[i] = <ImageCard source={imageList.imgArr[i].toString()}/>
@@ -26,15 +39,6 @@ const List = (imageList: ImageList) => {
 
     setRenderedItems(tempArr);
   },[imageList.imgArr])
-
-  useEffect(() => {
-    window.addEventListener('scroll', handleScroll);
-  
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
-
-  if(renderedItems)
-    console.log(renderedItems[1]);
 
   useEffect(() => {
     if (!isFetching) return;
@@ -51,8 +55,7 @@ const List = (imageList: ImageList) => {
     let count = 0;
     
     for(let i=0; i<fetchingAmt; i++){
-      console.log(i+index);
-      console.log(imageList.imgArr[index+i])
+      console.log(index+i);
       if(!imageList.imgArr[index+i])
         break;
 
@@ -60,10 +63,10 @@ const List = (imageList: ImageList) => {
 
       count++;
     }
-    setRenderedItems(renderedItems?.concat(tempArr));
+    const updatedList = renderedItems?.concat(tempArr);
+    setRenderedItems(updatedList);
     setIndex(index+count);
     setIsFetching(false);
-    console.log(renderedItems);
   }  
   
   return (
